@@ -7,6 +7,11 @@ public class Attacking : StateMachineBehaviour
     private float elapsed_time = 0.0f;
     public float attack_duration = 0.5f;
     public string myParameterName;
+
+    private float elapsed_bullet_time = 0.0f;
+
+    public int frequence;
+    public GameObject bulletPrefab;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,6 +22,14 @@ public class Attacking : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         elapsed_time += Time.deltaTime;
+        elapsed_bullet_time += Time.deltaTime;
+
+        if(elapsed_bullet_time >= (1.0f / (float)frequence))
+        {
+            SpawnBullet();
+            elapsed_bullet_time = 0.0f;
+        }
+
 
         if (elapsed_time >= attack_duration)
         {
@@ -30,5 +43,8 @@ public class Attacking : StateMachineBehaviour
 
     }
 
-
+    void SpawnBullet()
+    {
+        Debug.Log("Bullet spawned");
+    }
 }
