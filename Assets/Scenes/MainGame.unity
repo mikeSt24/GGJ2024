@@ -1642,6 +1642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2632275568325736615, guid: ae20e2cf40195cd8688564a738703e69, type: 3}
+      propertyPath: m_TagString
+      value: boss
+      objectReference: {fileID: 0}
     - target: {fileID: 4160884308191527003, guid: ae20e2cf40195cd8688564a738703e69, type: 3}
       propertyPath: m_LocalScale.x
       value: 2

@@ -112,7 +112,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("bullet") == true || collision.CompareTag("player_bullet")) return;
+        if (collision.CompareTag("bullet") == true || collision.CompareTag("player_bullet") || collision.CompareTag("boss")) return;
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player got hit");
