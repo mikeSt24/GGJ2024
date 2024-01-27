@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7706673425606589287}
   - component: {fileID: 4762363280921632451}
   - component: {fileID: 8422314704173858145}
+  - component: {fileID: 2591713075390099535}
   m_Layer: 0
   m_Name: LeftSinBullet
   m_TagString: bullet
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.47, y: 0.17, z: 0.08607748}
-  m_LocalScale: {x: 1, y: 1, z: 3.4463587}
+  m_LocalScale: {x: 2, y: 2, z: 3.4463587}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,6 +51,8 @@ MonoBehaviour:
   BulletSpeed: 6
   BulletDirection: 0
   PathType: 1
+  mCustomVector: 0
+  mVecDir: {x: 0, y: 0, z: 0}
 --- !u!212 &7706673425606589287
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,3 +167,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &2591713075390099535
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291538410300829812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 478ca4509c91e1d46b01202d01c7de8a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

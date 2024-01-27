@@ -16,7 +16,12 @@ MonoBehaviour:
   attack_duration: 3
   myParameterName: attack_sin
   frequence: 5
+  Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: d875ae68fd41fa04fab7a4efb39b7bb9, type: 3}
+  bulletPrefabD: {fileID: 0}
+  warningSignal: {fileID: 0}
+  min_scene_x: 0
+  max_scene_x: 0
 --- !u!1101 &-7545328343970098687
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -38,6 +43,56 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 2.4027114e-10
   m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-5960587322973059978
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: attack_agujero_fast
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 312341586338389000}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-5345564806542251950
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: attack_agujero
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 312341586338389000}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -111,7 +166,37 @@ MonoBehaviour:
   attack_duration: 5
   myParameterName: attacking
   frequence: 1
+  Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: 48d86126327e9ff4a901e4ddf08959b2, type: 3}
+  bulletPrefabD: {fileID: 0}
+  warningSignal: {fileID: 0}
+  min_scene_x: 0
+  max_scene_x: 0
+--- !u!1101 &-2339951059600603309
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: attack_agujero_fast
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2135006334904481633}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-2140372759698743560
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -137,6 +222,34 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &-2135006334904481633
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AgujeroAttackFast
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -5960587322973059978}
+  m_StateMachineBehaviours:
+  - {fileID: 3799193416553396721}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-1836725234350693293
 AnimatorState:
   serializedVersion: 6
@@ -179,13 +292,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attack_sin
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: attack_agujero
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: attack_agujero_fast
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -212,6 +337,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: -2688809588743975195}
   - {fileID: 5233488147784503591}
+  - {fileID: 4222064625529845232}
+  - {fileID: -2339951059600603309}
   m_StateMachineBehaviours:
   - {fileID: 8637074999997259285}
   m_Position: {x: 50, y: 50, z: 0}
@@ -228,6 +355,81 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &1463354087503978012
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AgujeroAttack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -5345564806542251950}
+  m_StateMachineBehaviours:
+  - {fileID: 7587110555276993001}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!114 &3799193416553396721
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  function: 10
+  attack_duration: 1
+  myParameterName: attack_agujero_fast
+  frequence: 9
+  Omega: 1
+  bulletPrefab: {fileID: 2291538410300829812, guid: e9bbe24db336bb8018fac540396d9b66, type: 3}
+  bulletPrefabD: {fileID: 0}
+  warningSignal: {fileID: 6977015786691673255, guid: 52f4d664d6b11615eafc9b7b44e2e1b2, type: 3}
+  min_scene_x: -20
+  max_scene_x: 9
+--- !u!1101 &4222064625529845232
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: attack_agujero
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1463354087503978012}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &5233488147784503591
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -271,6 +473,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -3473942600242479307}
     m_Position: {x: 650, y: 0, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1463354087503978012}
+    m_Position: {x: 530, y: 170, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2135006334904481633}
+    m_Position: {x: 380, y: 230, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -281,6 +489,28 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 312341586338389000}
+--- !u!114 &7587110555276993001
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  function: 9
+  attack_duration: 3
+  myParameterName: attack_agujero
+  frequence: 1
+  Omega: 0.5
+  bulletPrefab: {fileID: 2291538410300829812, guid: 48d86126327e9ff4a901e4ddf08959b2, type: 3}
+  bulletPrefabD: {fileID: 2291538410300829812, guid: 70418d4c788953ce88872c4fcb2ddd45, type: 3}
+  warningSignal: {fileID: 0}
+  min_scene_x: -3
+  max_scene_x: 3
 --- !u!114 &8637074999997259285
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -296,10 +526,18 @@ MonoBehaviour:
   attack_cooldown: 1
   attacks:
   - attack: 0
-    probability: 0.5
+    probability: 0
     cooldown: 0.5
     name: attacking
   - attack: 1
-    probability: 0.5
+    probability: 0
     cooldown: 2
     name: attack_sin
+  - attack: 2
+    probability: 0
+    cooldown: 2
+    name: attack_agujero
+  - attack: 3
+    probability: 1
+    cooldown: 2
+    name: attack_agujero_fast

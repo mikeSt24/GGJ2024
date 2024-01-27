@@ -30,13 +30,16 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
     private Vector3 mInitPos = Vector3.zero;
     private int mDir = -1;
-    private float mAmplitude = 2.0f;
     private float t = 0.0f;
 
     public bool mCustomVector = false;
     public Vector3 mVecDir = Vector3.zero;
 
+    Animator mAnimator;
 
+    public float mAmplitude = 2.0f;
+
+    public float mOmega = 1.0f;
 
 
     void Start()
@@ -73,6 +76,8 @@ public class BasicProjectileBehaviour : MonoBehaviour
         {
             BulletSpeed *= -1;
         }
+
+        mAnimator = GetComponent<Animator>();  
     }
 
     // Update is called once per frame
@@ -99,7 +104,13 @@ public class BasicProjectileBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("bullet") == true) return;
-        Debug.Log("I'm dead");
+        if(mAnimator != null) 
+        {
+            mAnimator.SetBool("dead", true);
+            this.enabled = false;
+            return;
+        }
+
         Destroy(gameObject);
     }
 
@@ -152,18 +163,18 @@ public class BasicProjectileBehaviour : MonoBehaviour
             if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
             {
                 new_pos.x += Time.deltaTime * BulletSpeed * mDir;
-                new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(t);
+                new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(t * mOmega);
             }
             else
             {
                 new_pos.y += Time.deltaTime * BulletSpeed * mDir;
-                new_pos.x = mInitPos.x + mAmplitude * Mathf.Sin(t);
+                new_pos.x = mInitPos.x + mAmplitude * Mathf.Sin(t * mOmega);
             }
         }
         else
         {
             new_pos.x = mInitPos.x + t;
-            new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(t) + mVecDir.y*t/ mVecDir.x;
+            new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(t * mOmega) + mVecDir.y*t/ mVecDir.x;
         }
 
         Vector3 dir_norm = new_pos - mPrevPos;dir_norm = dir_norm.normalized;
@@ -182,18 +193,18 @@ public class BasicProjectileBehaviour : MonoBehaviour
             if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
             {
                 new_pos.x += Time.deltaTime * BulletSpeed * mDir;
-                new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(t);
+                new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(t * mOmega);
             }
             else
             {
                 new_pos.y += Time.deltaTime * BulletSpeed * mDir;
-                new_pos.x = mInitPos.x + mAmplitude * Mathf.Cos(t);
+                new_pos.x = mInitPos.x + mAmplitude * Mathf.Cos(t * mOmega);
             }
         }
         else
         {
             new_pos.x = mInitPos.x + t;
-            new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(t) + mVecDir.y * t / mVecDir.x;
+            new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(t * mOmega) + mVecDir.y * t / mVecDir.x;
         }
 
         Vector3 dir_norm = new_pos - mPrevPos; dir_norm = dir_norm.normalized;
