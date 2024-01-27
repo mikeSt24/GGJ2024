@@ -565,7 +565,7 @@ MonoBehaviour:
   function: 10
   attack_duration: 1
   myParameterName: attack_agujero_fast
-  frequence: 9
+  frequence: 7
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: e9bbe24db336bb8018fac540396d9b66, type: 3}
   bulletPrefabD: {fileID: 0}
