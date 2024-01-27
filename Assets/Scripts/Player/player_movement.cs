@@ -20,7 +20,7 @@ public class player_movement : MonoBehaviour
     void Update()
     {
         //For now this will be hardcoded, this could change
-        rb.AddForce(Input.GetAxis("Horizontal") * mSpeed * new Vector2(1,0));
+        rb.AddForce(Input.GetAxis("Horizontal") * mSpeed * new Vector2(1,0) * Time.deltaTime);
         //Force for a maximum speed
         if(Mathf.Abs(rb.velocity.x) > mMaxSpeed)
         {
