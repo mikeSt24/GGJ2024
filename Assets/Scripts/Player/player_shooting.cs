@@ -14,17 +14,22 @@ public class player_shooting : MonoBehaviour
     Transform tr;
     Rigidbody2D rb;
     UnityEngine.Vector2 dir;
+    Animator brain;
     // Start is called before the first frame update
     void Start()
     {
         tr = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         t = 0.0f;
+        brain = GetComponent<Animator>();
+        dir = new UnityEngine.Vector2(1.0f, 0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(brain.GetBool("Countdown")) return;
         if(rb.velocity.x  > 0.01f)
         {
             dir = new UnityEngine.Vector2(1.0f, 0.0f);
