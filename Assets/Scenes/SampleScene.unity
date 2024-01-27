@@ -280,16 +280,96 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ba541938f3e031e469815fea15fcda7f, type: 3}
     - target: {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_Mass
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1638720631}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: mSpeed
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: mMaxSpeed
-      value: 0.05
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: accelInAir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: slideAccel
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: slideSpeed
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: deccelInAir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: runMaxSpeed
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: maxFallSpeed
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpTimeToApex
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: fallGravityMult
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: runAcceleration
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: runDecceleration
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: doConserveMomentum
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpCutGravityMult
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHangGravityMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHangMaxSpeedMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHangAccelerationMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: bullet_speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: bullets_per_second
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6047062679851835863, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_Size.y
@@ -303,10 +383,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1638720631}
   m_SourcePrefab: {fileID: 100100000, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
 --- !u!1 &1271504386
 GameObject:
@@ -460,12 +544,44 @@ Transform:
   m_GameObject: {fileID: 1271504386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3002, y: -9.79, z: 0}
-  m_LocalScale: {x: 45.02992, y: 1.26, z: 1}
+  m_LocalPosition: {x: -3.3002, y: -16.0308, z: 0}
+  m_LocalScale: {x: 45.02992, y: 13.741686, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1638720622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+  m_PrefabInstance: {fileID: 1242708553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1638720631
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638720622}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1854616186
 GameObject:
   m_ObjectHideFlags: 0

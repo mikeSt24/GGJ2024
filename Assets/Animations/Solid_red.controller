@@ -292,25 +292,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_sin
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_agujero
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_agujero_fast
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -526,18 +526,18 @@ MonoBehaviour:
   attack_cooldown: 1
   attacks:
   - attack: 0
-    probability: 0
+    probability: 0.25
     cooldown: 0.5
     name: attacking
   - attack: 1
-    probability: 0
+    probability: 0.25
     cooldown: 2
     name: attack_sin
   - attack: 2
-    probability: 0
+    probability: 0.25
     cooldown: 2
     name: attack_agujero
   - attack: 3
-    probability: 1
+    probability: 0.25
     cooldown: 2
     name: attack_agujero_fast
