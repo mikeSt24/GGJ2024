@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4762363280921632451}
   - component: {fileID: 8422314704173858145}
   m_Layer: 0
-  m_Name: BasicProjectile
-  m_TagString: Untagged
+  m_Name: LeftSinBullet
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89de808ae690b64ba9dedd6dcc95582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 5
+  BulletSpeed: 3
   BulletDirection: 0
-  PathType: 0
+  PathType: 1
 --- !u!212 &7706673425606589287
 SpriteRenderer:
   m_ObjectHideFlags: 0
