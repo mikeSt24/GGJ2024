@@ -90,7 +90,7 @@ public class player_movement : MonoBehaviour
     #endregion
     public void OnJumpInput()
     {
-        LastPressedJumpTime = 0.2f;
+        LastPressedJumpTime = 0.2f * (Time.frameCount / Time.time) / 144.0f;
     }
 
     public void OnJumpUpInput()
