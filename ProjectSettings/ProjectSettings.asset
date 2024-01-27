@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Dragon Jammers
   productName: Clown Academy
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 88a81d1a4038d6c9daaba57b7b4d6d9c, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 0.8349056, b: 0.87617934, a: 1}
   m_ShowUnitySplashScreen: 1
