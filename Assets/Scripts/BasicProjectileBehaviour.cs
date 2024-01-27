@@ -14,7 +14,8 @@ public class BasicProjectileBehaviour : MonoBehaviour
     {
         linear,
         sin_fun,
-        cos_fun
+        cos_fun,
+        circular
     }
     public enum Direction
     {
@@ -31,6 +32,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     private Vector3 mInitPos = Vector3.zero;
     private int mDir = -1;
     private float mAmplitude = 2.0f;
+    private float t = 0.0f;
 
 
     void Start()
@@ -55,7 +57,6 @@ public class BasicProjectileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         switch (PathType)
         {
             case PathFunction.sin_fun:
@@ -64,13 +65,17 @@ public class BasicProjectileBehaviour : MonoBehaviour
             case PathFunction.cos_fun:
                 CosPath();
                 break;
+            case PathFunction.circular:
+                CircularPath();
+                break;
         
             default:
             case PathFunction.linear:
                 LinearPath();
                 break;
         }
-        
+
+        t += Time.deltaTime * BulletSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -122,6 +127,25 @@ public class BasicProjectileBehaviour : MonoBehaviour
         {
             new_pos.x += Time.deltaTime * BulletSpeed * mDir;
             new_pos.y = mAmplitude * Mathf.Cos(new_pos.x - mInitPos.x);
+        }
+        else
+        {
+            new_pos.y += Time.deltaTime * BulletSpeed * mDir;
+            new_pos.x = mAmplitude * Mathf.Cos(new_pos.y - mInitPos.y);
+        }
+
+        transform.SetPositionAndRotation(new_pos, transform.rotation);
+    }
+
+    void CircularPath()
+    {
+        Vector3 new_pos = transform.position;
+
+
+        if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
+        {
+            new_pos.x = Time.deltaTime * BulletSpeed * (1 - mDir) + mAmplitude * Mathf.Cos(t);
+            new_pos.y = Time.deltaTime * BulletSpeed * (1 - mDir) + mAmplitude * Mathf.Sin(t);
         }
         else
         {
