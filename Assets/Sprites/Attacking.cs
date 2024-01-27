@@ -117,11 +117,13 @@ public class Attacking : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        foreach(GameObject obj in warningSignals)
+        if(function==bullet_spawn_function.AGUJERO_FAST)
         {
-            Destroy(obj);
+            foreach (GameObject obj in warningSignals)
+            {
+                Destroy(obj);
+            }
         }
-
     }
 
     void UpdateSpawnPositionStatic(Transform trans, float elapsed_time, float attack_duration, int streams)
