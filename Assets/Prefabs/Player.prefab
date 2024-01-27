@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1206295855690147137}
   - component: {fileID: 4514196629923132256}
   - component: {fileID: 6047062679851835863}
+  - component: {fileID: 5365847072825098579}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -165,8 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2815135780043986646}
-  mSpeed: 0.05
-  mMaxSpeed: 0.01
+  mSpeed: 2
+  mMaxSpeed: 0.05
   brain: {fileID: 4246912066742065965}
 --- !u!70 &6047062679851835863
 CapsuleCollider2D:
@@ -203,3 +204,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.14566337}
   m_Size: {x: 1, y: 1.2393689}
   m_Direction: 0
+--- !u!114 &5365847072825098579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999057504970635150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056c83090736cf2289d0bad099cbc3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5659171006436868387, guid: d796faf512d7be909855a3918496763a, type: 3}
+  bullet_speed: 10
+  bullets_per_second: 5
