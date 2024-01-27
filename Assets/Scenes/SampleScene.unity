@@ -698,12 +698,76 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1442443512}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: mSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: mMaxSpeed
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: accelInAir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHeight
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: slideAccel
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: slideSpeed
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: deccelInAir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: runMaxSpeed
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: maxFallSpeed
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpTimeToApex
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: fallGravityMult
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: runAcceleration
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: runDecceleration
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpCutGravityMult
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHangGravityMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHangMaxSpeedMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: jumpHangAccelerationMult
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: bullet_speed
@@ -725,7 +789,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1012,22 +1077,33 @@ MonoBehaviour:
   hearts: 3
   healthBar: {fileID: 2134045545}
   Heart_Step: 150
---- !u!114 &1442443512
-MonoBehaviour:
+--- !u!50 &1442443512
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442443494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36920fe835472081692816e0a59fe493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prl_objs:
-  - parallax_ratio: 0.01
-    initial_pos: {x: 0, y: 0, z: 0}
-    parallax_obj: {fileID: 2053552438}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &1507440537
 PrefabInstance:
   m_ObjectHideFlags: 0
