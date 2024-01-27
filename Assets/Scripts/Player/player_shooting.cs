@@ -22,7 +22,7 @@ public class player_shooting : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         t = 0.0f;
         brain = GetComponent<Animator>();
-        dir = new UnityEngine.Vector2(1.0f, 0.0f);
+        dir = new UnityEngine.Vector2(2.0f, 0.0f);
     }
 
     // Update is called once per frame
@@ -32,11 +32,11 @@ public class player_shooting : MonoBehaviour
         if(brain.GetBool("Countdown")) return;
         if(rb.velocity.x  > 0.01f)
         {
-            dir = new UnityEngine.Vector2(1.0f, 0.0f);
+            dir = new UnityEngine.Vector2(2.0f, 0.0f);
         }
         if(rb.velocity.x < -0.01f)
         {
-            dir = new UnityEngine.Vector2(-1.0f, 0.0f);
+            dir = new UnityEngine.Vector2(-2.0f, 0.0f);
         }
 
         t -= Time.deltaTime;
