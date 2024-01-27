@@ -15,6 +15,7 @@ MonoBehaviour:
   function: 2
   attack_duration: 3
   myParameterName: attack_sin
+  y_offset_position: -3
   frequence: 5
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: d875ae68fd41fa04fab7a4efb39b7bb9, type: 3}
@@ -217,6 +218,7 @@ MonoBehaviour:
   function: 11
   attack_duration: 2
   myParameterName: attack_nina
+  y_offset_position: 0
   frequence: 6
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: fac7ea365e67d8dbf952913e1e9a7580, type: 3}
@@ -292,6 +294,7 @@ MonoBehaviour:
   function: 8
   attack_duration: 5
   myParameterName: attacking
+  y_offset_position: -3
   frequence: 1
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: 48d86126327e9ff4a901e4ddf08959b2, type: 3}
@@ -419,43 +422,43 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_sin
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_agujero
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_agujero_fast
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_nina
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_nina_high
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Countdown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -623,6 +626,7 @@ MonoBehaviour:
   function: 10
   attack_duration: 1
   myParameterName: attack_agujero_fast
+  y_offset_position: 0
   frequence: 7
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: e9bbe24db336bb8018fac540396d9b66, type: 3}
@@ -695,6 +699,7 @@ MonoBehaviour:
   function: 12
   attack_duration: 4
   myParameterName: attack_nina_high
+  y_offset_position: 0
   frequence: 6
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: fac7ea365e67d8dbf952913e1e9a7580, type: 3}
@@ -760,6 +765,7 @@ MonoBehaviour:
   function: 9
   attack_duration: 3
   myParameterName: attack_agujero
+  y_offset_position: 0
   frequence: 1
   Omega: 0.5
   bulletPrefab: {fileID: 2291538410300829812, guid: 48d86126327e9ff4a901e4ddf08959b2, type: 3}

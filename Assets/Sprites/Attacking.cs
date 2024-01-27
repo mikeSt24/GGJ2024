@@ -33,6 +33,7 @@ public class Attacking : StateMachineBehaviour
     private float elapsed_time = 0.0f;
     public float attack_duration = 0.5f;
     public string myParameterName;
+    public float y_offset_position = 0.0f;
 
     private float elapsed_bullet_time = 0.0f;
 
@@ -233,7 +234,7 @@ public class Attacking : StateMachineBehaviour
     {
         GameObject spawned_bulet = Instantiate(bulletPrefab);
 
-        spawned_bulet.transform.SetPositionAndRotation(pos, Quaternion.identity);
+        spawned_bulet.transform.SetPositionAndRotation(new Vector3(pos.x, pos.y + y_offset_position, 0.0f), Quaternion.identity);
     }
 
     void SpawnBulletDown(Vector3 pos)
