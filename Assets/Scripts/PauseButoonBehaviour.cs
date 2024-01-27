@@ -11,7 +11,6 @@ public class PauseButoonBehaviour : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -21,7 +20,7 @@ public class PauseButoonBehaviour : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameObject.GetComponent<Button>().onClick.Invoke();
+            ActivatePauseMenu();
         }
     }
 
@@ -39,8 +38,8 @@ public class PauseButoonBehaviour : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(true);
         }
 
-        gameObject.GetComponent<Button>().enabled = false;
-        gameObject.GetComponent<Image>().enabled = false;
+        //gameObject.GetComponent<Button>().enabled = false;
+        //gameObject.GetComponent<Image>().enabled = false;
     }
 
     public void ResumeGame()
@@ -51,8 +50,8 @@ public class PauseButoonBehaviour : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        transform.GetComponent<Button>().enabled = true;
-        transform.GetComponent<Image>().enabled = true;
+        //transform.GetComponent<Button>().enabled = true;
+        //transform.GetComponent<Image>().enabled = true;
     }
     public void OptionsButton()
     {
