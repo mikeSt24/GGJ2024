@@ -109,7 +109,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
         mCustomVector = true;
     }
 
-    void LinearPath()
+    private void LinearPath()
     {
         Vector3 new_pos = transform.position;
         Quaternion rot = transform.rotation;
@@ -142,7 +142,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
     private Vector3 mPrevPos = Vector3.zero;
 
-    void SinPath()
+    private void SinPath()
     {
         Vector3 new_pos = transform.position;
         Quaternion rot = transform.rotation;
@@ -172,7 +172,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
         transform.SetPositionAndRotation(new_pos, rot);
     }
-    void CosPath()
+    private void CosPath()
     {
         Vector3 new_pos = transform.position;
         Quaternion rot = transform.rotation;
