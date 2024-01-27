@@ -29,10 +29,13 @@ public class Attacking : StateMachineBehaviour
 
     public int frequence;
     public GameObject bulletPrefab;
+
+    private Vector3 bounds;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         elapsed_time = 0.0f;
+        bounds = new Vector3(animator.GetComponent<Transform>().localScale.x, animator.GetComponent<BossBehavior>().bulletBounds.x, 0.0f);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -101,7 +104,7 @@ public class Attacking : StateMachineBehaviour
         if(cubic)
             t = t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) * (-2 * t + 2) * (-2 * t + 2) / 2;
 
-        Vector3 position = Vector3.Lerp(trans.position + trans.localScale / 2.0f * dir, trans.position - trans.localScale / 2.0f * dir, t);
+        Vector3 position = Vector3.Lerp(trans.position + bounds * dir, trans.position - bounds * dir, t);
         SpawnBullet(position);
     }
     void UpdateSpawnPositionLinearInward(Transform trans, float elapsed_time, float attack_duration, bool inward, bool cubic = false)
@@ -113,15 +116,15 @@ public class Attacking : StateMachineBehaviour
 
         if (inward)
         {
-            Vector3 topposition = Vector3.Lerp(trans.position + trans.localScale / 2.0f, trans.position, t);
-            Vector3 botposition = Vector3.Lerp(trans.position - trans.localScale / 2.0f, trans.position, t);
+            Vector3 topposition = Vector3.Lerp(trans.position + bounds, trans.position, t);
+            Vector3 botposition = Vector3.Lerp(trans.position - bounds, trans.position, t);
             SpawnBullet(topposition);
             SpawnBullet(botposition);
         }
         else
         {
-            Vector3 topposition = Vector3.Lerp(trans.position, trans.position + trans.localScale / 2.0f, t);
-            Vector3 botposition = Vector3.Lerp(trans.position, trans.position - trans.localScale / 2.0f, t);
+            Vector3 topposition = Vector3.Lerp(trans.position, trans.position + bounds, t);
+            Vector3 botposition = Vector3.Lerp(trans.position, trans.position - bounds, t);
             SpawnBullet(topposition);
             SpawnBullet(botposition);
         }

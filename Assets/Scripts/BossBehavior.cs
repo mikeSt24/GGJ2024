@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
 {
+    public Vector2 bulletBounds;
     // Start is called before the first frame update
     void Start()
     {
