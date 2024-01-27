@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89de808ae690b64ba9dedd6dcc95582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 3
+  BulletSpeed: 6
   BulletDirection: 0
   PathType: 1
 --- !u!212 &7706673425606589287

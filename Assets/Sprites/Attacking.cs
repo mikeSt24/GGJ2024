@@ -51,7 +51,7 @@ public class Attacking : StateMachineBehaviour
             switch (function)
             {
                 case bullet_spawn_function.STATIC:
-                    SpawnBullet(animator.transform.position - new Vector3(animator.transform.localScale.x / 2.0f, 0.0f, 0.0f));
+                    UpdateSpawnPositionStatic(animator.transform, elapsed_time, attack_duration, 2);
                     break;
                 case bullet_spawn_function.LINEAR_UP:
                     UpdateSpawnPositionLinear(animator.transform, elapsed_time, attack_duration, true);
@@ -96,6 +96,16 @@ public class Attacking : StateMachineBehaviour
 
     }
 
+    void UpdateSpawnPositionStatic(Transform trans, float elapsed_time, float attack_duration, int streams)
+    {
+        Vector3 top_position = trans.position + new Vector3(bounds.x, bounds.y, 0.0f);
+        for(int i = 0; i < streams; i++) 
+        {
+            Vector3 position = top_position -  i * new Vector3(0.0f, (2.0f * bounds.y / (float)(streams - 1)), 0.0f);
+            SpawnBullet(position);
+        }
+    }
+
     void UpdateSpawnPositionLinear(Transform trans, float elapsed_time, float attack_duration, bool up, bool cubic = false)
     {
         int dir = up? 1 : -1;
@@ -130,7 +140,6 @@ public class Attacking : StateMachineBehaviour
         }
         
     }
-
     void SpawnBullet(Vector3 pos)
     {
         GameObject spawned_bulet = Instantiate(bulletPrefab);
