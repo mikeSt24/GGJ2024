@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
 {
     public void ToMainGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void ToOptionsMenu()

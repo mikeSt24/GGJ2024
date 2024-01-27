@@ -138,7 +138,7 @@ public class player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(brain.GetBool("Countdown")) return;
         ////For now this will be hardcoded, this could change
         //rb.AddForce(Input.GetAxis("Horizontal") * mSpeed * new Vector2(1,0) * Time.deltaTime);
         ////Force for a maximum speed
@@ -361,6 +361,6 @@ public class player_movement : MonoBehaviour
         brain.SetBool("JumpUp", false);    
         brain.SetBool("JumpDown", false);    
         brain.SetBool("Idle", true);
-        LastOnGroundTime = 0.01f;
+        LastOnGroundTime = Time.deltaTime + 0.01f;
     }
 }
