@@ -38,6 +38,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
 
 
+
     void Start()
     {
         mInitPos = transform.position;
@@ -77,6 +78,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mPrevPos = transform.position;
         switch (PathType)
         {
             case PathFunction.sin_fun:
@@ -91,10 +93,6 @@ public class BasicProjectileBehaviour : MonoBehaviour
                 LinearPath();
                 break;
         }
-        //Vector3 ort = transform.position.normalized;
-        //Debug.Log(Mathf.Asin(ort.x));
-        //Quaternion rot = Quaternion.Euler(0.0F, 0.0F, -Mathf.Asin(ort.x));
-        //transform.SetPositionAndRotation(transform.position, rot);
         t += Time.deltaTime * BulletSpeed;
     }
 
@@ -114,12 +112,16 @@ public class BasicProjectileBehaviour : MonoBehaviour
     void LinearPath()
     {
         Vector3 new_pos = transform.position;
+        Quaternion rot = transform.rotation;
 
         if (mCustomVector == false)
         {
             if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
             {
                 new_pos.x += Time.deltaTime * BulletSpeed * mDir;
+
+
+                rot = Quaternion.Euler(0.0F, 0.0F, Mathf.Asin(mDir)*180.0f/Mathf.PI);
             }
             else
             {
@@ -128,15 +130,22 @@ public class BasicProjectileBehaviour : MonoBehaviour
         }
         else
         {
+            rot = Quaternion.Euler(0.0F, 0.0F, (Mathf.Atan2(mVecDir.normalized.y, mVecDir.normalized.x) + Mathf.PI / 2.0f) * 180.0f / Mathf.PI);
+
             new_pos = mInitPos + mVecDir * t;
+
         }
 
 
-        transform.SetPositionAndRotation(new_pos, transform.rotation);
+        transform.SetPositionAndRotation(new_pos, rot);
     }
+
+    private Vector3 mPrevPos = Vector3.zero;
+
     void SinPath()
     {
         Vector3 new_pos = transform.position;
+        Quaternion rot = transform.rotation;
 
         if (mCustomVector == false)
         {
@@ -157,11 +166,16 @@ public class BasicProjectileBehaviour : MonoBehaviour
             new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(t) + mVecDir.y*t/ mVecDir.x;
         }
 
-        transform.SetPositionAndRotation(new_pos, transform.rotation);
+        Vector3 dir_norm = new_pos - mPrevPos;dir_norm = dir_norm.normalized;
+        rot = Quaternion.Euler(0.0F, 0.0F, (Mathf.Atan2(dir_norm.y, dir_norm.x) + Mathf.PI / 2.0f) * 180.0f / Mathf.PI);
+
+
+        transform.SetPositionAndRotation(new_pos, rot);
     }
     void CosPath()
     {
         Vector3 new_pos = transform.position;
+        Quaternion rot = transform.rotation;
 
         if (mCustomVector == false)
         {
@@ -181,7 +195,10 @@ public class BasicProjectileBehaviour : MonoBehaviour
             new_pos.x = mInitPos.x + t;
             new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(t) + mVecDir.y * t / mVecDir.x;
         }
-        transform.SetPositionAndRotation(new_pos, transform.rotation);
+
+        Vector3 dir_norm = new_pos - mPrevPos; dir_norm = dir_norm.normalized;
+        rot = Quaternion.Euler(0.0F, 0.0F, (Mathf.Atan2(dir_norm.y, dir_norm.x) + Mathf.PI / 2.0f) * 180.0f / Mathf.PI);
+        transform.SetPositionAndRotation(new_pos, rot);
     }
 
 }
