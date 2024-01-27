@@ -22,6 +22,34 @@ MonoBehaviour:
   warningSignal: {fileID: 0}
   min_scene_x: 0
   max_scene_x: 0
+--- !u!1102 &-8722100676832253608
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NinaAttackHigh
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -4323352496866135493}
+  m_StateMachineBehaviours:
+  - {fileID: 5431003826084546882}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7545328343970098687
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -97,6 +125,53 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-4323352496866135493
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: attack_nina_high
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 312341586338389000}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &-3954084993565938222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  function: 11
+  attack_duration: 2
+  myParameterName: attack_nina
+  frequence: 6
+  Omega: 1
+  bulletPrefab: {fileID: 2291538410300829812, guid: fac7ea365e67d8dbf952913e1e9a7580, type: 3}
+  bulletPrefabD: {fileID: 8206665427288254445, guid: 41ba8d2f744a9fd5196ca5b0a0fce7dd, type: 3}
+  warningSignal: {fileID: 0}
+  min_scene_x: -15
+  max_scene_x: 6
 --- !u!1102 &-3473942600242479307
 AnimatorState:
   serializedVersion: 6
@@ -311,6 +386,18 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: attack_nina
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: attack_nina_high
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -324,6 +411,34 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &5686379328742237
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NinaAttack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1817048035177615134}
+  m_StateMachineBehaviours:
+  - {fileID: -3954084993565938222}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &312341586338389000
 AnimatorState:
   serializedVersion: 6
@@ -339,6 +454,8 @@ AnimatorState:
   - {fileID: 5233488147784503591}
   - {fileID: 4222064625529845232}
   - {fileID: -2339951059600603309}
+  - {fileID: 8038759821117927591}
+  - {fileID: 2606031690038649193}
   m_StateMachineBehaviours:
   - {fileID: 8637074999997259285}
   m_Position: {x: 50, y: 50, z: 0}
@@ -383,6 +500,56 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &1817048035177615134
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: attack_nina
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 312341586338389000}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &2606031690038649193
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: attack_nina_high
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8722100676832253608}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &3799193416553396721
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -455,6 +622,28 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &5431003826084546882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  function: 12
+  attack_duration: 4
+  myParameterName: attack_nina_high
+  frequence: 6
+  Omega: 1
+  bulletPrefab: {fileID: 2291538410300829812, guid: fac7ea365e67d8dbf952913e1e9a7580, type: 3}
+  bulletPrefabD: {fileID: 8206665427288254445, guid: 41ba8d2f744a9fd5196ca5b0a0fce7dd, type: 3}
+  warningSignal: {fileID: 0}
+  min_scene_x: -15
+  max_scene_x: 6
 --- !u!1107 &5742192239653374404
 AnimatorStateMachine:
   serializedVersion: 6
@@ -469,16 +658,22 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1836725234350693293}
-    m_Position: {x: 370, y: -70, z: 0}
+    m_Position: {x: 220, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3473942600242479307}
-    m_Position: {x: 650, y: 0, z: 0}
+    m_Position: {x: 220, y: -150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1463354087503978012}
-    m_Position: {x: 530, y: 170, z: 0}
+    m_Position: {x: 220, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2135006334904481633}
-    m_Position: {x: 380, y: 230, z: 0}
+    m_Position: {x: 220, y: 230, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5686379328742237}
+    m_Position: {x: 590, y: 20, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8722100676832253608}
+    m_Position: {x: 590, y: 80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -511,6 +706,31 @@ MonoBehaviour:
   warningSignal: {fileID: 0}
   min_scene_x: -3
   max_scene_x: 3
+--- !u!1101 &8038759821117927591
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: attack_nina
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5686379328742237}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &8637074999997259285
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,18 +746,26 @@ MonoBehaviour:
   attack_cooldown: 1
   attacks:
   - attack: 0
-    probability: 0.25
+    probability: 0.16
     cooldown: 0.5
     name: attacking
   - attack: 1
-    probability: 0.25
+    probability: 0.16
     cooldown: 2
     name: attack_sin
   - attack: 2
-    probability: 0.25
+    probability: 0.16
     cooldown: 2
     name: attack_agujero
   - attack: 3
-    probability: 0.25
+    probability: 0.16
     cooldown: 2
     name: attack_agujero_fast
+  - attack: 4
+    probability: 0.16
+    cooldown: 2
+    name: attack_nina
+  - attack: 5
+    probability: 0.16
+    cooldown: 2
+    name: attack_nina_high

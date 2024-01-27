@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using Unity.Collections;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class Attacking : StateMachineBehaviour
         CUBIC_OUTWARD,
         AGUJERO,
         AGUJERO_FAST,
+        NINA,
+        NINA_HIGH,
         TOTAL_SPAWNS
     }
     public bullet_spawn_function function;
@@ -52,6 +55,12 @@ public class Attacking : StateMachineBehaviour
         {
         case bullet_spawn_function.AGUJERO_FAST:
             StartSpawnPositionAgujeroFast(min_scene_x, max_scene_x);
+            break;
+        case bullet_spawn_function.NINA:
+            StartSpawnPositionNina(min_scene_x, max_scene_x);
+            break;
+        case bullet_spawn_function.NINA_HIGH:
+            StartSpawnPositionNina(min_scene_x, max_scene_x);
             break;
         }
     }
@@ -117,12 +126,14 @@ public class Attacking : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(function==bullet_spawn_function.AGUJERO_FAST)
-        {
-            foreach (GameObject obj in warningSignals)
+        if(function == bullet_spawn_function.AGUJERO_FAST)
+            foreach(GameObject obj in warningSignals)
             {
                 Destroy(obj);
             }
+        if(function == bullet_spawn_function.NINA || function == bullet_spawn_function.NINA_HIGH)
+        {
+            Destroy(nina_hitbox);
         }
     }
 
@@ -194,6 +205,30 @@ public class Attacking : StateMachineBehaviour
 
     }
 
+    GameObject nina_hitbox;
+
+    void StartSpawnPositionNina(float min_x, float max_x)
+    {
+        float dt = (max_x - min_x)/frequence;
+        for(int i = 0; i < frequence; ++i)
+        {
+            Vector2 aim = new Vector2(min_x + dt * i, -9.0f);
+            float y0 = -6.0f;
+            float x0 = max_x + 3.0f;
+            float alpha = Mathf.Atan((aim.y - y0 + (1.0f/2.0f)*9.8f * attack_duration* attack_duration) * (1.0f/(aim.x - x0)));
+            float v = (aim.x - x0/(Mathf.Cos(alpha)*attack_duration));
+            Vector2 final_vel = new Vector2();
+            final_vel.x = Mathf.Cos(alpha) * v;
+            final_vel.y = Mathf.Sin(alpha) * v;
+
+            GameObject spawned_bullet = Instantiate(bulletPrefab);
+            spawned_bullet.GetComponent<Transform>().position = new Vector3(x0, y0, 0.0f);
+            spawned_bullet.GetComponent<Rigidbody2D>().velocity = final_vel;
+        }
+
+        nina_hitbox = Instantiate(bulletPrefabD);
+        nina_hitbox.GetComponent<Transform>().position = new Vector3(max_x + 2.0f, -10.0f, 0.0f);
+    }
     void SpawnBullet(Vector3 pos)
     {
         GameObject spawned_bulet = Instantiate(bulletPrefab);

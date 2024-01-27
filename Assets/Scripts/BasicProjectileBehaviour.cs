@@ -35,6 +35,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     public bool mCustomVector = false;
     public Vector3 mVecDir = Vector3.zero;
 
+    Animator mAnimator;
 
     public float mAmplitude = 2.0f;
 
@@ -75,6 +76,8 @@ public class BasicProjectileBehaviour : MonoBehaviour
         {
             BulletSpeed *= -1;
         }
+
+        mAnimator = GetComponent<Animator>();  
     }
 
     // Update is called once per frame
@@ -98,10 +101,31 @@ public class BasicProjectileBehaviour : MonoBehaviour
         t += Time.deltaTime * BulletSpeed;
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision) {
+    //    if (collision.otherCollider.CompareTag("bullet") == true || collision.otherCollider.CompareTag("player_bullet")) return;
+    //    if(collision.otherCollider.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Player got hit");
+    //    }
+    //    Destroy(gameObject);
+    //}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("bullet") == true) return;
-        Debug.Log("I'm dead");
+
+        if (collision.CompareTag("bullet") == true || collision.CompareTag("player_bullet")) return;
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Player got hit");
+            collision.gameObject.GetComponent<PlayerHpController>().Hitreceived();
+        }
+        if(mAnimator != null) 
+        {
+            mAnimator.SetBool("dead", true);
+            this.enabled = false;
+            return;
+        }
+
         Destroy(gameObject);
     }
 
