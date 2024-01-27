@@ -22,6 +22,7 @@ public class boss_idle_state : StateMachineBehaviour
         NINA_ATTACK,
         NINA_HIGH_ATTACK,
         SIN_TOP_DOWN_ATTACK,
+        LOW_BLOCK_ATTACK,
         TOTAL_ATTACKS
     }
 

@@ -26,6 +26,7 @@ public class Attacking : StateMachineBehaviour
         AGUJERO_FAST,
         NINA,
         NINA_HIGH,
+        STATIC_LOW,
         TOTAL_SPAWNS
     }
     public bullet_spawn_function function;
@@ -108,8 +109,8 @@ public class Attacking : StateMachineBehaviour
                 case bullet_spawn_function.AGUJERO:
                     UpdateSpawnPositionAgujero(min_scene_x, max_scene_x, elapsed_time, attack_duration);
                     break;
-                case bullet_spawn_function.AGUJERO_FAST:
-                    //UpdateSpawnPositionAgujeroFast(min_scene_x, max_scene_x, elapsed_time, attack_duration);
+                case bullet_spawn_function.STATIC_LOW:
+                    UpdateSpawnPositionStatic(animator.transform, elapsed_time, attack_duration, 1, true);
                     break;
             }
 
@@ -138,8 +139,14 @@ public class Attacking : StateMachineBehaviour
         }
     }
 
-    void UpdateSpawnPositionStatic(Transform trans, float elapsed_time, float attack_duration, int streams)
+    void UpdateSpawnPositionStatic(Transform trans, float elapsed_time, float attack_duration, int streams, bool low = false)
     {
+        if(low)
+        {
+            Vector3 position = new Vector3(trans.position.x, -6, 0.0f);
+            SpawnBullet(position);
+            return;
+        }
         Vector3 top_position = trans.position + new Vector3(bounds.x, bounds.y, 0.0f);
         for(int i = 0; i < streams; i++) 
         {
