@@ -41,7 +41,7 @@ public class BossHpController: MonoBehaviour
         hit = true;
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
-        HealthAmount -= dmg;
+        HealthAmount -= dmg * 2.0f;
         healthBar.fillAmount = HealthAmount / 100.0f;
         if(HealthAmount <= 0.0f)
         {
