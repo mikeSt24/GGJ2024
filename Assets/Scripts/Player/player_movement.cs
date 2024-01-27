@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
+    public SpriteRenderer spr_renderer;
     // --------------------------------------------------------------------------------------------------------------------------------------------------
     [Header("Gravity")]
     [HideInInspector] public float gravityStrength; 
@@ -115,6 +116,7 @@ public class player_movement : MonoBehaviour
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();  
+        spr_renderer = GetComponent<SpriteRenderer>();
         //Calculate gravity strength using the formula (gravity = 2 * jumpHeight / timeToJumpApex^2) 
         gravityStrength = -(2 * jumpHeight) / (jumpTimeToApex * jumpTimeToApex);
 
@@ -140,6 +142,22 @@ public class player_movement : MonoBehaviour
     void Update()
     {
         if(brain.GetBool("Countdown")) return;
+
+        if(rb.velocity.x > 0.1f)
+        {
+            spr_renderer.flipX = false;
+            brain.SetBool("Moving", true);
+        }
+        if(rb.velocity.x < -0.1f)
+        {
+            spr_renderer.flipX = true;
+            brain.SetBool("Moving", true);
+        }
+        if(Mathf.Abs(rb.velocity.x) < 0.1f)
+        {
+            brain.SetBool("Moving", false);
+        }
+
         ////For now this will be hardcoded, this could change
         //rb.AddForce(Input.GetAxis("Horizontal") * mSpeed * new Vector2(1,0) * Time.deltaTime);
         ////Force for a maximum speed
