@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1557461123908595028}
   - component: {fileID: 2228545966178735339}
-  - component: {fileID: 2815135780043986646}
   - component: {fileID: 4246912066742065965}
   - component: {fileID: 1206295855690147137}
   - component: {fileID: 4514196629923132256}
   - component: {fileID: 6047062679851835863}
   - component: {fileID: 5365847072825098579}
+  - component: {fileID: 6063780586565858925}
+  - component: {fileID: 7676059695630045975}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -33,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5162, y: 1.5162, z: 1.5162}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba541938f3e031e469815fea15fcda7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,33 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2815135780043986646
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6999057504970635150}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
-  m_GravityScale: 3
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!95 &4246912066742065965
 Animator:
   serializedVersion: 5
@@ -165,7 +139,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e905db85252b80b789dd43bc1fd5022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2815135780043986646}
+  gravityStrength: 0
+  gravityScale: 0
+  fallGravityMult: 2
+  maxFallSpeed: 22
+  runMaxSpeed: 9.5
+  runAcceleration: 9.5
+  runAccelAmount: 0
+  runDecceleration: 9.5
+  runDeccelAmount: 0
+  accelInAir: 1
+  deccelInAir: 1
+  jumpHeight: 6.5
+  jumpTimeToApex: 0.5
+  jumpForce: 0
+  jumpCutGravityMult: 3.5
+  jumpHangGravityMult: 1
+  jumpHangTimeThreshold: 0
+  jumpHangAccelerationMult: 1
+  jumpHangMaxSpeedMult: 1
+  slideSpeed: -12
+  slideAccel: 12
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  rb: {fileID: 7676059695630045975}
   mSpeed: 2
   mMaxSpeed: 0.05
   brain: {fileID: 4246912066742065965}
@@ -201,8 +199,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14566337}
-  m_Size: {x: 1, y: 1.2393689}
+  m_Offset: {x: 0, y: -0.31575054}
+  m_Size: {x: 1, y: 2.162197}
   m_Direction: 0
 --- !u!114 &5365847072825098579
 MonoBehaviour:
@@ -217,5 +215,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5659171006436868387, guid: d796faf512d7be909855a3918496763a, type: 3}
-  bullet_speed: 10
+  bullet_speed: 20
   bullets_per_second: 5
+--- !u!114 &6063780586565858925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999057504970635150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e51e161328f7140a245db816f345f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heart_prefab: {fileID: 8936775043951407952, guid: d1dfefcdcc3289c4bb7e32a2084fb33e, type: 3}
+  hearts: 3
+  healthBar: {fileID: 0}
+  Heart_Step: 150
+--- !u!50 &7676059695630045975
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999057504970635150}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
