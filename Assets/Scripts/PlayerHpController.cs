@@ -1,42 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHpController : MonoBehaviour
 {
-    public Image healthBar;
-    public float BaseHealth = 100.0f;
-    public float DamageoOfHit = 20.00f;
-    public float HealthAmount = 100.0f;
+    public GameObject healthBar_prefab;
+    public GameObject heart_prefab;
+    public int hearts = 3;
+
+    private GameObject healthBar;
+    private float height = 350;
+    private float start = -800;
+    public float Heart_Step = 150.0f;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        healthBar = Instantiate(healthBar_prefab);
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Return))
+        int count = healthBar.transform.childCount;
+        for(int i = 0; i < hearts - count; i++)
         {
-            Hitreceived(DamageoOfHit);
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ResetHealth();
+            GameObject obj = Instantiate(heart_prefab,healthBar.transform);
+            obj.transform.localPosition = new Vector3(start, height, 0.0f) + new Vector3(i * Heart_Step, 0.0f,0.0f);
         }
     }
-
-    public void Hitreceived(float dmg)
+    public void Hitreceived()
     {
-        HealthAmount -= dmg;
-        healthBar.fillAmount = HealthAmount / 100.0f;
+        --hearts;
+        Destroy(transform.GetChild(healthBar.transform.childCount - 1).gameObject);
+        if(hearts == 0)
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 
     public void ResetHealth()
     {
-        HealthAmount = BaseHealth;
-        healthBar.fillAmount = HealthAmount;
+        ++hearts;
+        GameObject obj = Instantiate(heart_prefab, healthBar.transform);
+        obj.transform.position = new Vector3(start, height, 0.0f) + new Vector3(healthBar.transform.childCount * Heart_Step, 0.0f, 0.0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("bullet"))
+        {
+            Debug.Log("O nooooooo");
+            Hitreceived();
+        }
     }
 }

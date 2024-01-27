@@ -15,4 +15,12 @@ public class BossBehavior : MonoBehaviour
     {
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("player_bullet"))
+        {
+            gameObject.GetComponent<BossHpController>().Hitreceived(0.1f); // Damage Temp
+        }
+    }
 }
