@@ -104,6 +104,7 @@ public class player_movement : MonoBehaviour
         if (CanJumpCut())
         {
             _isJumpCut = true;
+            brain.SetBool("Dash", false);
             brain.SetBool("JumpUp", false);
             brain.SetBool("Idle", false);
             brain.SetBool("JumpDown", true);
@@ -169,6 +170,22 @@ public class player_movement : MonoBehaviour
                 {
                     _isDashing = false;
                     _Timer = 0;
+                    if(RB.velocity.y < 0.0f )
+                    {
+                        brain.SetBool("Dash", false);
+                        brain.SetBool("JumpUp", false);
+                        brain.SetBool("Idle", false);
+                        brain.SetBool("JumpDown", true);
+                    }
+                    else
+                    {
+                        brain.SetBool("Dash", false);
+                        brain.SetBool("JumpUp", false);
+                        brain.SetBool("Idle", true);
+                        brain.SetBool("JumpDown", false);
+
+                    }
+
                 }
             }
             else
@@ -199,7 +216,14 @@ public class player_movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             _isDashing = true;
+
+            brain.SetBool("Dash", true);
+            brain.SetBool("JumpUp", false);
+            brain.SetBool("Idle", false);
+            brain.SetBool("JumpDown", false);
+
             GetComponent<PlayerHpController>().MakeInvulnerable(_DashTime, false);
+
         }
         #endregion
 
@@ -212,6 +236,7 @@ public class player_movement : MonoBehaviour
 
             _isJumpFalling = true;
 
+            brain.SetBool("Dash", false);
             brain.SetBool("JumpUp", false);
             brain.SetBool("Idle", false);
             brain.SetBool("JumpDown", true);
@@ -328,6 +353,7 @@ public class player_movement : MonoBehaviour
 
         RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
+        brain.SetBool("Dash", false);
         brain.SetBool("JumpUp", true);
         brain.SetBool("Idle", false);
         brain.SetBool("JumpDown", false);
@@ -358,6 +384,8 @@ public class player_movement : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D other) {
+
+        brain.SetBool("Dash", false);
         brain.SetBool("JumpUp", false);    
         brain.SetBool("JumpDown", false);    
         brain.SetBool("Idle", true);
