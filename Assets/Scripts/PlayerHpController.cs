@@ -97,7 +97,7 @@ public class PlayerHpController : MonoBehaviour
         }
     }
 
-    public void MakeInvulnerable(bool blk = true)
+    public void MakeInvulnerable(float untouchable = 3.0f,bool blk = true)
     {
         CanTakeDamage = false;
 
@@ -105,5 +105,6 @@ public class PlayerHpController : MonoBehaviour
         timer = 0.0f;
         blicktimer = 0.0f;
         blincking = blk;
+        InvencibleFor = untouchable;
     }
 }

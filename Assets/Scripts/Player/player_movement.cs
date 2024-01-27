@@ -67,7 +67,7 @@ public class player_movement : MonoBehaviour
 
     //Dash
     private bool _isDashing = false;
-    private float _DashTime = 1.5f;
+    private float _DashTime = 0.1f;
     private float _Timer = 0.0f;
     private int direction = 1;
 
@@ -163,14 +163,17 @@ public class player_movement : MonoBehaviour
 
         if(_isDashing)
         {
-            if(_Timer > _DashTime)
+            if (_Timer > _DashTime)
             {
-                transform.position = new Vector3(transform.position.x + mSpeed * Time.deltaTime, transform.position.y, transform.position.z);
                 if (_Timer > _DashTime + 0.5f)
                 {
                     _isDashing = false;
                     _Timer = 0;
                 }
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x + mSpeed * Time.deltaTime * direction * 30, transform.position.y, transform.position.z);
             }
             
             _Timer += Time.deltaTime;
@@ -196,6 +199,7 @@ public class player_movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             _isDashing = true;
+            GetComponent<PlayerHpController>().MakeInvulnerable(_DashTime, false);
         }
         #endregion
 
@@ -263,7 +267,10 @@ public class player_movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Run(1);
+        if(!_isDashing)
+        {
+            Run(1);
+        }
     }
         private void Run(float lerpAmount)
     {
