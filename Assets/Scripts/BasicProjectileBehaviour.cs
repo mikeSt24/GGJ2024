@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
