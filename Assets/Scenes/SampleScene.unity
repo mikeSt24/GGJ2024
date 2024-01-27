@@ -224,12 +224,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5162
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5162
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5162
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.323489
       objectReference: {fileID: 0}
     - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5
+      value: -3.34
       objectReference: {fileID: 0}
     - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_LocalPosition.z
@@ -269,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ba541938f3e031e469815fea15fcda7f, type: 3}
     - target: {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_GravityScale
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: mSpeed
@@ -278,6 +290,14 @@ PrefabInstance:
     - target: {fileID: 4514196629923132256, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: mMaxSpeed
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047062679851835863, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_Size.y
+      value: 2.162197
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047062679851835863, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.31575054
       objectReference: {fileID: 0}
     - target: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_Name
@@ -440,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 1271504386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.65, y: -6.22, z: 0}
+  m_LocalPosition: {x: -11.65, y: -8.8, z: 0}
   m_LocalScale: {x: 33.68, y: 1.26, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,6 +478,7 @@ GameObject:
   - component: {fileID: 1854616188}
   - component: {fileID: 1854616187}
   - component: {fileID: 1854616190}
+  - component: {fileID: 1854616191}
   m_Layer: 0
   m_Name: Sky_Blue
   m_TagString: Untagged
@@ -547,7 +568,7 @@ Transform:
   m_GameObject: {fileID: 1854616186}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.63, y: 2.59, z: 0}
+  m_LocalPosition: {x: 13.14, y: 2.91, z: 0}
   m_LocalScale: {x: 2.2162, y: 2.2162, z: 2.2162}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,6 +586,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb0303beb7a5ef4f9fda15cfc6fd376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletBounds: {x: 5, y: 3.21}
+--- !u!61 &1854616191
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854616186}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.1934166, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.19, y: 6.42}
+    newSize: {x: 10.26, y: 7.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8031671, y: 6.42}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
