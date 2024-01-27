@@ -65,6 +65,12 @@ public class player_movement : MonoBehaviour
     private bool _isJumpCut;
     private bool _isJumpFalling;
 
+    //Dash
+    private bool _isDashing = false;
+    private float _DashTime = 0.1f;
+    private float _Timer = 0.0f;
+    private int direction = 1;
+
     private Vector2 _moveInput;
     public float LastPressedJumpTime { get; private set; }
 
@@ -149,6 +155,31 @@ public class player_movement : MonoBehaviour
         LastPressedJumpTime -= Time.deltaTime;
         #endregion
 
+        if(rb.velocity.x > 0 )
+        {
+            direction = 1;
+        }
+        else if(rb.velocity.x < 0 ) { direction = -1; }
+
+        if(_isDashing)
+        {
+            if (_Timer > _DashTime)
+            {
+                if (_Timer > _DashTime + 0.5f)
+                {
+                    _isDashing = false;
+                    _Timer = 0;
+                }
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x + mSpeed * Time.deltaTime * direction * 30, transform.position.y, transform.position.z);
+            }
+            
+            _Timer += Time.deltaTime;
+            return;
+        }
+
         #region INPUT HANDLER
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
@@ -163,6 +194,16 @@ public class player_movement : MonoBehaviour
             OnJumpUpInput();
         }
         #endregion
+
+        #region DASH
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            _isDashing = true;
+            GetComponent<PlayerHpController>().MakeInvulnerable(_DashTime, false);
+        }
+        #endregion
+
+
 
         #region JUMP CHECKS
         if (IsJumping && RB.velocity.y < 0)
@@ -226,7 +267,10 @@ public class player_movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Run(1);
+        if(!_isDashing)
+        {
+            Run(1);
+        }
     }
         private void Run(float lerpAmount)
     {
