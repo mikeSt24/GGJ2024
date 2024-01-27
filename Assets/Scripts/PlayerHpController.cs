@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerHpController : MonoBehaviour
 {
-    public GameObject healthBar_prefab;
+    //public GameObject healthBar_prefab;
     public GameObject heart_prefab;
     public int hearts = 3;
 
-    private GameObject healthBar;
+    public GameObject healthBar;
     private float height = 350;
     private float start = -800;
     public float Heart_Step = 150.0f;
@@ -19,7 +19,7 @@ public class PlayerHpController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = Instantiate(healthBar_prefab);
+        //healthBar = Instantiate(healthBar_prefab);
 
         int count = healthBar.transform.childCount;
         for(int i = 0; i < hearts - count; i++)

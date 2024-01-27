@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class BossHpController: MonoBehaviour
 {
-    private Image healthBar;
-    public GameObject healthBar_Prefab;
+    //public GameObject healthBar_Prefab;
+    public Image healthBar;
+
     public float BaseHealth = 100.0f;
     public float DamageoOfHit = 20.00f;
     public float HealthAmount = 100.0f;
@@ -16,11 +17,12 @@ public class BossHpController: MonoBehaviour
     private float TimeRed = 0.1f;
     private float currentTime = 0;
     private bool hit = false;
-    private void Start()
-    {
-        healthBar_Prefab = Instantiate(healthBar_Prefab);
-        healthBar = healthBar_Prefab.transform.GetChild(2).GetComponent<Image>();
-    }
+
+    //private void Start()
+    //{
+    //    healthBar_Prefab = Instantiate(healthBar_Prefab);
+    //    healthBar = healthBar_Prefab.transform.GetChild(2).GetComponent<Image>();
+    //}
     private void Update()
     {
         if(hit)
