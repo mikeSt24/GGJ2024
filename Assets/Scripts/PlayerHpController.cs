@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,7 +15,12 @@ public class PlayerHpController : MonoBehaviour
     private float height = 350;
     private float start = -800;
     public float Heart_Step = 150.0f;
-    
+    private bool CanTakeDamage = true;
+    private float InvencibleFor = 3.0f;
+    private float timer = 0.0f;
+    private float blinckTime = 0.1f;
+    private bool ghoost = false;
+    private float blicktimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +34,50 @@ public class PlayerHpController : MonoBehaviour
             obj.transform.localPosition = new Vector3(start, height, 0.0f) + new Vector3(i * Heart_Step, 0.0f,0.0f);
         }
     }
+    private void Update()
+    {
+        if(!CanTakeDamage)
+        {
+            if(timer >= InvencibleFor)
+            {
+                CanTakeDamage = true;
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                return;
+            }
+            if(blicktimer >= blinckTime)
+            {
+                ghoost = !ghoost;
+                blicktimer = 0.0f;
+            }
+            if(ghoost)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            }
+        }
+        timer += Time.deltaTime;
+        blicktimer += Time.deltaTime;
+    }
     public void Hitreceived()
     {
+        if(!CanTakeDamage)
+        {
+            return;
+        }
+
         --hearts;
-        Destroy(transform.GetChild(healthBar.transform.childCount - 1).gameObject);
+        Destroy(healthBar.transform.GetChild(healthBar.transform.childCount - 1).gameObject);
         if(hearts == 0)
         {
             SceneManager.LoadScene("LoseScreen");
         }
+        CanTakeDamage = false;
+        ghoost = false;
+        timer = 0.0f;
+        blicktimer = 0.0f;
     }
 
     public void ResetHealth()
@@ -49,7 +91,6 @@ public class PlayerHpController : MonoBehaviour
     {
         if(collision.collider.CompareTag("bullet"))
         {
-            Debug.Log("O nooooooo");
             Hitreceived();
         }
     }
