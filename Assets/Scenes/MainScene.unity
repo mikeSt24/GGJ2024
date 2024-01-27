@@ -689,10 +689,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ba541938f3e031e469815fea15fcda7f, type: 3}
-    - target: {fileID: 2228545966178735339, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_GravityScale
       value: 2

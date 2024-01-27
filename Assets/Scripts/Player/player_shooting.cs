@@ -25,11 +25,11 @@ public class player_shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rb.velocity.x  > 0)
+        if(rb.velocity.x  > 0.01f)
         {
             dir = new UnityEngine.Vector2(1.0f, 0.0f);
         }
-        if(rb.velocity.x < 0)
+        if(rb.velocity.x < -0.01f)
         {
             dir = new UnityEngine.Vector2(-1.0f, 0.0f);
         }
