@@ -78,6 +78,34 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-7584254766663074333
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LowBlock
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -1896755152563031511}
+  m_StateMachineBehaviours:
+  - {fileID: 3281485739940180449}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7545328343970098687
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -279,6 +307,29 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-2444552860461466054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  function: 0
+  attack_duration: 2
+  myParameterName: sintd_attack
+  y_offset_position: -2
+  frequence: 3
+  Omega: 1
+  bulletPrefab: {fileID: 2291538410300829812, guid: d875ae68fd41fa04fab7a4efb39b7bb9, type: 3}
+  bulletPrefabD: {fileID: 0}
+  warningSignal: {fileID: 0}
+  min_scene_x: 0
+  max_scene_x: 0
 --- !u!114 &-2442086369443269571
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,10 +343,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   function: 8
-  attack_duration: 5
+  attack_duration: 2
   myParameterName: attacking
   y_offset_position: -3
-  frequence: 1
+  frequence: 3
   Omega: 1
   bulletPrefab: {fileID: 2291538410300829812, guid: 48d86126327e9ff4a901e4ddf08959b2, type: 3}
   bulletPrefabD: {fileID: 0}
@@ -324,6 +375,31 @@ AnimatorStateTransition:
   m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-2295631326324403778
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: low_attack
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -7584254766663074333}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -380,6 +456,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-1896755152563031511
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: low_attack
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 312341586338389000}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1102 &-1836725234350693293
 AnimatorState:
   serializedVersion: 6
@@ -422,43 +523,55 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attack_sin
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attack_agujero
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attack_agujero_fast
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attack_nina
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: attack_nina_high
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Countdown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: sintd_attack
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: low_attack
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -517,6 +630,8 @@ AnimatorState:
   - {fileID: -2339951059600603309}
   - {fileID: 8038759821117927591}
   - {fileID: 2606031690038649193}
+  - {fileID: 3148275711825385590}
+  - {fileID: -2295631326324403778}
   m_StateMachineBehaviours:
   - {fileID: 8637074999997259285}
   m_Position: {x: 50, y: 50, z: 0}
@@ -611,6 +726,54 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &3148275711825385590
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: sintd_attack
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 7394346230561362298}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &3281485739940180449
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  function: 13
+  attack_duration: 4
+  myParameterName: low_attack
+  y_offset_position: 0
+  frequence: 2
+  Omega: 1
+  bulletPrefab: {fileID: 2291538410300829812, guid: 48d86126327e9ff4a901e4ddf08959b2, type: 3}
+  bulletPrefabD: {fileID: 0}
+  warningSignal: {fileID: 0}
+  min_scene_x: 0
+  max_scene_x: 0
 --- !u!114 &3799193416553396721
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,6 +903,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -8348572375385399612}
     m_Position: {x: 10, y: 220, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7394346230561362298}
+    m_Position: {x: 210, y: -250, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7584254766663074333}
+    m_Position: {x: 630, y: 270, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -750,6 +919,34 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8348572375385399612}
+--- !u!1102 &7394346230561362298
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sine_top_down
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 7956371281553463556}
+  m_StateMachineBehaviours:
+  - {fileID: -2444552860461466054}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!114 &7587110555276993001
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -773,6 +970,31 @@ MonoBehaviour:
   warningSignal: {fileID: 0}
   min_scene_x: -3
   max_scene_x: 3
+--- !u!1101 &7956371281553463556
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: sintd_attack
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 312341586338389000}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &8038759821117927591
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -813,26 +1035,34 @@ MonoBehaviour:
   attack_cooldown: 1
   attacks:
   - attack: 0
-    probability: 0.16
+    probability: 0.125
     cooldown: 0.5
     name: attacking
   - attack: 1
-    probability: 0.16
-    cooldown: 2
+    probability: 0.125
+    cooldown: 1
     name: attack_sin
   - attack: 2
-    probability: 0.16
-    cooldown: 2
+    probability: 0.11
+    cooldown: 0.75
     name: attack_agujero
   - attack: 3
-    probability: 0.16
+    probability: 0.14
     cooldown: 2
     name: attack_agujero_fast
   - attack: 4
-    probability: 0.16
+    probability: 0.125
     cooldown: 2
     name: attack_nina
   - attack: 5
-    probability: 0.16
-    cooldown: 2
+    probability: 0.125
+    cooldown: 1
     name: attack_nina_high
+  - attack: 6
+    probability: 0.11
+    cooldown: 1
+    name: sintd_attack
+  - attack: 7
+    probability: 0.14
+    cooldown: 0
+    name: low_attack

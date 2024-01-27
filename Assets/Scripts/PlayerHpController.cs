@@ -12,7 +12,7 @@ public class PlayerHpController : MonoBehaviour
     public int hearts = 3;
 
     public GameObject healthBar;
-    private float height = 350;
+    private float height = 480;
     private float start = -800;
     public float Heart_Step = 150.0f;
     private bool CanTakeDamage = true;
