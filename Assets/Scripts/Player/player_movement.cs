@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class player_movement : MonoBehaviour
 {
+    public SpriteRenderer spr_renderer;
     // --------------------------------------------------------------------------------------------------------------------------------------------------
     [Header("Gravity")]
     [HideInInspector] public float gravityStrength; 
@@ -104,6 +105,7 @@ public class player_movement : MonoBehaviour
         if (CanJumpCut())
         {
             _isJumpCut = true;
+            brain.SetBool("Dash", false);
             brain.SetBool("JumpUp", false);
             brain.SetBool("Idle", false);
             brain.SetBool("JumpDown", true);
@@ -114,6 +116,7 @@ public class player_movement : MonoBehaviour
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();  
+        spr_renderer = GetComponent<SpriteRenderer>();
         //Calculate gravity strength using the formula (gravity = 2 * jumpHeight / timeToJumpApex^2) 
         gravityStrength = -(2 * jumpHeight) / (jumpTimeToApex * jumpTimeToApex);
 
@@ -139,6 +142,22 @@ public class player_movement : MonoBehaviour
     void Update()
     {
         if(brain.GetBool("Countdown")) return;
+
+        if(rb.velocity.x > 0.1f)
+        {
+            spr_renderer.flipX = false;
+            brain.SetBool("Moving", true);
+        }
+        if(rb.velocity.x < -0.1f)
+        {
+            spr_renderer.flipX = true;
+            brain.SetBool("Moving", true);
+        }
+        if(Mathf.Abs(rb.velocity.x) < 0.1f)
+        {
+            brain.SetBool("Moving", false);
+        }
+
         ////For now this will be hardcoded, this could change
         //rb.AddForce(Input.GetAxis("Horizontal") * mSpeed * new Vector2(1,0) * Time.deltaTime);
         ////Force for a maximum speed
@@ -169,6 +188,22 @@ public class player_movement : MonoBehaviour
                 {
                     _isDashing = false;
                     _Timer = 0;
+                    if(RB.velocity.y < 0.0f )
+                    {
+                        brain.SetBool("Dash", false);
+                        brain.SetBool("JumpUp", false);
+                        brain.SetBool("Idle", false);
+                        brain.SetBool("JumpDown", true);
+                    }
+                    else
+                    {
+                        brain.SetBool("Dash", false);
+                        brain.SetBool("JumpUp", false);
+                        brain.SetBool("Idle", true);
+                        brain.SetBool("JumpDown", false);
+
+                    }
+
                 }
             }
             else
@@ -199,7 +234,14 @@ public class player_movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             _isDashing = true;
+
+            brain.SetBool("Dash", true);
+            brain.SetBool("JumpUp", false);
+            brain.SetBool("Idle", false);
+            brain.SetBool("JumpDown", false);
+
             GetComponent<PlayerHpController>().MakeInvulnerable(_DashTime, false);
+
         }
         #endregion
 
@@ -212,6 +254,7 @@ public class player_movement : MonoBehaviour
 
             _isJumpFalling = true;
 
+            brain.SetBool("Dash", false);
             brain.SetBool("JumpUp", false);
             brain.SetBool("Idle", false);
             brain.SetBool("JumpDown", true);
@@ -328,6 +371,7 @@ public class player_movement : MonoBehaviour
 
         RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
+        brain.SetBool("Dash", false);
         brain.SetBool("JumpUp", true);
         brain.SetBool("Idle", false);
         brain.SetBool("JumpDown", false);
@@ -358,6 +402,8 @@ public class player_movement : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D other) {
+
+        brain.SetBool("Dash", false);
         brain.SetBool("JumpUp", false);    
         brain.SetBool("JumpDown", false);    
         brain.SetBool("Idle", true);
