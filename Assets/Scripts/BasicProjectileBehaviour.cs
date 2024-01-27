@@ -91,7 +91,10 @@ public class BasicProjectileBehaviour : MonoBehaviour
                 LinearPath();
                 break;
         }
-
+        //Vector3 ort = transform.position.normalized;
+        //Debug.Log(Mathf.Asin(ort.x));
+        //Quaternion rot = Quaternion.Euler(0.0F, 0.0F, -Mathf.Asin(ort.x));
+        //transform.SetPositionAndRotation(transform.position, rot);
         t += Time.deltaTime * BulletSpeed;
     }
 
