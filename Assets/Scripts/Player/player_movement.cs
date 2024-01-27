@@ -8,6 +8,8 @@ public class player_movement : MonoBehaviour
     public float mSpeed;
     public float mMaxSpeed;
 
+    public Animator brain;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,11 @@ public class player_movement : MonoBehaviour
             else
                 rb.velocity = new Vector2(-mMaxSpeed, rb.velocity.y);
         }
-        
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        brain.SetBool("JumpUp", false);    
+        brain.SetBool("JumpDown", false);    
+        brain.SetBool("Idle", true);
     }
 }
