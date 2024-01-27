@@ -1527,6 +1527,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4690782709725359566, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: player_anim
+      value: 
+      objectReference: {fileID: 1442443519}
     - target: {fileID: 5621096262388799141, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
