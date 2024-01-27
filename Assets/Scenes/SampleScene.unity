@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 1854616187}
   - component: {fileID: 1854616190}
   - component: {fileID: 1854616191}
+  - component: {fileID: 1854616192}
   m_Layer: 0
   m_Name: Sky_Blue
   m_TagString: Untagged
@@ -592,7 +593,7 @@ Transform:
   m_GameObject: {fileID: 1854616186}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.14, y: 2.91, z: 0}
+  m_LocalPosition: {x: 13.06, y: 0.48, z: 0}
   m_LocalScale: {x: 2.2162, y: 2.2162, z: 2.2162}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -643,7 +644,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1934166, y: 0}
+  m_Offset: {x: 1.18, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -656,6 +657,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8031671, y: 6.42}
   m_EdgeRadius: 0
+--- !u!114 &1854616192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854616186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3541d8b55effc3a4c94bd87a492dd9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar_Prefab: {fileID: 6324114171963016809, guid: b6bce5cf3b330a243adec23c0a2c93d3, type: 3}
+  BaseHealth: 100
+  DamageoOfHit: 20
+  HealthAmount: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
