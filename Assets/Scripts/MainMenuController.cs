@@ -20,6 +20,16 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void ToWinScreen()
+    {
+        SceneManager.LoadScene("WinScreen");
+    }
+
+    public void ToLoseScreen()
+    {
+        SceneManager.LoadScene("LoseScreen");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
