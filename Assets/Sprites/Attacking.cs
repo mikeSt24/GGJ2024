@@ -13,6 +13,10 @@ public class Attacking : StateMachineBehaviour
         LINEAR_DOWN,
         LINEAR_INWARD,
         LINEAR_OUTWARD,
+        CUBIC_UP,
+        CUBIC_DOWN,
+        CUBIC_INWARD,
+        CUBIC_OUTWARD,
         TOTAL_SPAWNS
     }
     public bullet_spawn_function function;
@@ -58,6 +62,18 @@ public class Attacking : StateMachineBehaviour
                 case bullet_spawn_function.LINEAR_OUTWARD:
                     UpdateSpawnPositionLinearInward(animator.transform, elapsed_time, attack_duration, false);
                     break;
+                case bullet_spawn_function.CUBIC_UP:
+                    UpdateSpawnPositionLinear(animator.transform, elapsed_time, attack_duration, true, true);
+                    break;
+                case bullet_spawn_function.CUBIC_DOWN:
+                    UpdateSpawnPositionLinear(animator.transform, elapsed_time, attack_duration, false, true);
+                    break;
+                case bullet_spawn_function.CUBIC_INWARD:
+                    UpdateSpawnPositionLinearInward(animator.transform, elapsed_time, attack_duration, true, true);
+                    break;
+                case bullet_spawn_function.CUBIC_OUTWARD:
+                    UpdateSpawnPositionLinearInward(animator.transform, elapsed_time, attack_duration, false, true);
+                    break;
             }
 
 
@@ -77,26 +93,35 @@ public class Attacking : StateMachineBehaviour
 
     }
 
-    void UpdateSpawnPositionLinear(Transform trans, float elapsed_time, float attack_duration, bool up)
+    void UpdateSpawnPositionLinear(Transform trans, float elapsed_time, float attack_duration, bool up, bool cubic = false)
     {
         int dir = up? 1 : -1;
-        Vector3 position = Vector3.Lerp(trans.position + trans.localScale / 2.0f * dir, trans.position - trans.localScale / 2.0f * dir, elapsed_time / attack_duration);
+        float t = elapsed_time / attack_duration;
+
+        if(cubic)
+            t = t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) * (-2 * t + 2) * (-2 * t + 2) / 2;
+
+        Vector3 position = Vector3.Lerp(trans.position + trans.localScale / 2.0f * dir, trans.position - trans.localScale / 2.0f * dir, t);
         SpawnBullet(position);
     }
-    void UpdateSpawnPositionLinearInward(Transform trans, float elapsed_time, float attack_duration, bool inward)
+    void UpdateSpawnPositionLinearInward(Transform trans, float elapsed_time, float attack_duration, bool inward, bool cubic = false)
     {
+        float t = elapsed_time / attack_duration;
+
+        if (cubic)
+            t = t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) * (-2 * t + 2) * (-2 * t + 2) / 2;
 
         if (inward)
         {
-            Vector3 topposition = Vector3.Lerp(trans.position + trans.localScale / 2.0f, trans.position, elapsed_time / attack_duration);
-            Vector3 botposition = Vector3.Lerp(trans.position - trans.localScale / 2.0f, trans.position, elapsed_time / attack_duration);
+            Vector3 topposition = Vector3.Lerp(trans.position + trans.localScale / 2.0f, trans.position, t);
+            Vector3 botposition = Vector3.Lerp(trans.position - trans.localScale / 2.0f, trans.position, t);
             SpawnBullet(topposition);
             SpawnBullet(botposition);
         }
         else
         {
-            Vector3 topposition = Vector3.Lerp(trans.position, trans.position + trans.localScale / 2.0f, elapsed_time / attack_duration);
-            Vector3 botposition = Vector3.Lerp(trans.position, trans.position - trans.localScale / 2.0f, elapsed_time / attack_duration);
+            Vector3 topposition = Vector3.Lerp(trans.position, trans.position + trans.localScale / 2.0f, t);
+            Vector3 botposition = Vector3.Lerp(trans.position, trans.position - trans.localScale / 2.0f, t);
             SpawnBullet(topposition);
             SpawnBullet(botposition);
         }
