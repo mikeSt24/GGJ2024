@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: mMaxSpeed
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: bullet_speed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6047062679851835863, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_Size.y
       value: 2.162197
@@ -301,6 +305,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -521,7 +529,7 @@ Animator:
   m_GameObject: {fileID: 1854616186}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 955b97be65c8a984286c89291f20840c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 61d70d3fad1a15143a2942f77828da68, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -101,9 +101,22 @@ public class BasicProjectileBehaviour : MonoBehaviour
         t += Time.deltaTime * BulletSpeed;
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision) {
+    //    if (collision.otherCollider.CompareTag("bullet") == true || collision.otherCollider.CompareTag("player_bullet")) return;
+    //    if(collision.otherCollider.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Player got hit");
+    //    }
+    //    Destroy(gameObject);
+    //}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("bullet") == true) return;
+        if (collision.CompareTag("bullet") == true || collision.CompareTag("player_bullet")) return;
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("Player got hit");
+        }
         if(mAnimator != null) 
         {
             mAnimator.SetBool("dead", true);

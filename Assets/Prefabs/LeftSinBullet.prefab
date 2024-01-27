@@ -53,6 +53,8 @@ MonoBehaviour:
   PathType: 1
   mCustomVector: 0
   mVecDir: {x: 0, y: 0, z: 0}
+  mAmplitude: 2
+  mOmega: 1
 --- !u!212 &7706673425606589287
 SpriteRenderer:
   m_ObjectHideFlags: 0
