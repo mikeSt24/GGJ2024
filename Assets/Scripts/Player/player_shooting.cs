@@ -39,6 +39,11 @@ public class player_shooting : MonoBehaviour
             dir = new UnityEngine.Vector2(-2.0f, 0.0f);
         }
 
+        if(brain.GetBool("Idle") && Input.GetKey(KeyCode.X))
+        {
+            brain.SetBool("Shooting", true);
+        }
+
         t -= Time.deltaTime;
 
         if(Input.GetKey(KeyCode.X) && t <= 0)
