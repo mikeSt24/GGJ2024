@@ -30,7 +30,9 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
     private Vector3 mInitPos = Vector3.zero;
     private int mDir = -1;
-    private float mAmplitude = 2.0f;
+    public float mAmplitude = 2.0f;
+
+    public float mOmega = 1.0f;
 
 
     void Start()
@@ -103,12 +105,12 @@ public class BasicProjectileBehaviour : MonoBehaviour
         if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
         {
             new_pos.x += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(new_pos.x - mInitPos.x);
+            new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin((new_pos.x - mInitPos.x) * mOmega);
         }
         else
         {
             new_pos.y += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.x = mInitPos.x + mAmplitude * Mathf.Sin(new_pos.y - mInitPos.y);
+            new_pos.x = mInitPos.x + mAmplitude * Mathf.Sin((new_pos.y - mInitPos.y) * mOmega);
         }
 
 
@@ -122,12 +124,12 @@ public class BasicProjectileBehaviour : MonoBehaviour
         if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
         {
             new_pos.x += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(new_pos.x - mInitPos.x);
+            new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos((new_pos.x - mInitPos.x) * mOmega);
         }
         else
         {
             new_pos.y += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.x = mInitPos.x + mAmplitude * Mathf.Cos(new_pos.y - mInitPos.y);
+            new_pos.x = mInitPos.x + mAmplitude * Mathf.Cos((new_pos.y - mInitPos.y) * mOmega);
         }
 
         transform.SetPositionAndRotation(new_pos, transform.rotation);

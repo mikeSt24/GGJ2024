@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore;
 using UnityEngine.UIElements;
 
 public class Attacking : StateMachineBehaviour
@@ -17,6 +19,7 @@ public class Attacking : StateMachineBehaviour
         CUBIC_DOWN,
         CUBIC_INWARD,
         CUBIC_OUTWARD,
+        AGUJERO,
         TOTAL_SPAWNS
     }
     public bullet_spawn_function function;
@@ -28,9 +31,13 @@ public class Attacking : StateMachineBehaviour
     private float elapsed_bullet_time = 0.0f;
 
     public int frequence;
+    public float Omega = 1.0f;
     public GameObject bulletPrefab;
+    public GameObject bulletPrefabD;
 
     private Vector3 bounds;
+    public float min_scene_x;
+    public float max_scene_x;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -76,6 +83,9 @@ public class Attacking : StateMachineBehaviour
                     break;
                 case bullet_spawn_function.CUBIC_OUTWARD:
                     UpdateSpawnPositionLinearInward(animator.transform, elapsed_time, attack_duration, false, true);
+                    break;
+                case bullet_spawn_function.AGUJERO:
+                    UpdateSpawnPositionAgujero(min_scene_x, max_scene_x, elapsed_time, attack_duration);
                     break;
             }
 
@@ -131,10 +141,29 @@ public class Attacking : StateMachineBehaviour
         
     }
 
+    void UpdateSpawnPositionAgujero(float min_x, float max_x, float elapsed_time, float attack_duration)
+    {
+        SpawnBulletDown(new Vector3(-10f, Mathf.Cos(elapsed_time / attack_duration) * 5.0f + 10.0f, 0.0f));
+        SpawnBulletDown(new Vector3(7.0f, Mathf.Cos(1.0f-(elapsed_time / attack_duration)) * 5.0f + 10.0f, 0.0f));
+    }
+
+    void UpdateSpawnPositionAgujeroFast(float min_x, float max_x, float elapsed_time, float attack_duration)
+    {
+
+    }
+
     void SpawnBullet(Vector3 pos)
     {
         GameObject spawned_bulet = Instantiate(bulletPrefab);
 
         spawned_bulet.transform.SetPositionAndRotation(pos, Quaternion.identity);
+    }
+
+    void SpawnBulletDown(Vector3 pos)
+    {
+        GameObject spawned_bullet = Instantiate(bulletPrefabD);
+        spawned_bullet.transform.SetPositionAndRotation(pos, Quaternion.identity);
+        spawned_bullet.GetComponent<BasicProjectileBehaviour>().mAmplitude = max_scene_x - min_scene_x;
+        spawned_bullet.GetComponent<BasicProjectileBehaviour>().mOmega = Omega;
     }
 }
