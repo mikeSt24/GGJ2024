@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PauseButoonBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Animator player_anim;
+
     void Start()
     {
         
@@ -15,6 +17,8 @@ public class PauseButoonBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             gameObject.GetComponent<Button>().onClick.Invoke();
@@ -24,6 +28,11 @@ public class PauseButoonBehaviour : MonoBehaviour
 
     public void ActivatePauseMenu()
     {
+        if(player_anim.GetBool("Countdown"))
+        {
+            return;
+        }
+
         Time.timeScale = 0.0f;
         for (int i = 0; i < transform.childCount; i++)
         {
