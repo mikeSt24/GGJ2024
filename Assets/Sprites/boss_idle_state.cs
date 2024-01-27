@@ -18,6 +18,7 @@ public class boss_idle_state : StateMachineBehaviour
         LINE_ATTACK,
         SIN_ATTACK,
         AGUJERO_ATTACK,
+        AGUJERO_FAST_ATTACK,
         TOTAL_ATTACKS
     }
 

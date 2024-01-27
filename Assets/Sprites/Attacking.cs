@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine.UIElements;
 
 public class Attacking : StateMachineBehaviour
 {
+    List<GameObject> warningSignals;
     public enum bullet_spawn_function
     {
         STATIC,
@@ -20,6 +22,7 @@ public class Attacking : StateMachineBehaviour
         CUBIC_INWARD,
         CUBIC_OUTWARD,
         AGUJERO,
+        AGUJERO_FAST,
         TOTAL_SPAWNS
     }
     public bullet_spawn_function function;
@@ -35,6 +38,8 @@ public class Attacking : StateMachineBehaviour
     public GameObject bulletPrefab;
     public GameObject bulletPrefabD;
 
+    public GameObject warningSignal;
+
     private Vector3 bounds;
     public float min_scene_x;
     public float max_scene_x;
@@ -43,6 +48,12 @@ public class Attacking : StateMachineBehaviour
     {
         elapsed_time = 0.0f;
         bounds = new Vector3(animator.GetComponent<Transform>().localScale.x, animator.GetComponent<BossBehavior>().bulletBounds.x, 0.0f);
+        switch(function)
+        {
+        case bullet_spawn_function.AGUJERO_FAST:
+            StartSpawnPositionAgujeroFast(min_scene_x, max_scene_x);
+            break;
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -87,6 +98,9 @@ public class Attacking : StateMachineBehaviour
                 case bullet_spawn_function.AGUJERO:
                     UpdateSpawnPositionAgujero(min_scene_x, max_scene_x, elapsed_time, attack_duration);
                     break;
+                case bullet_spawn_function.AGUJERO_FAST:
+                    //UpdateSpawnPositionAgujeroFast(min_scene_x, max_scene_x, elapsed_time, attack_duration);
+                    break;
             }
 
 
@@ -103,6 +117,10 @@ public class Attacking : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        foreach(GameObject obj in warningSignals)
+        {
+            Destroy(obj);
+        }
 
     }
 
@@ -147,8 +165,20 @@ public class Attacking : StateMachineBehaviour
         SpawnBulletDown(new Vector3(7.0f, Mathf.Cos(1.0f-(elapsed_time / attack_duration)) * 5.0f + 10.0f, 0.0f));
     }
 
-    void UpdateSpawnPositionAgujeroFast(float min_x, float max_x, float elapsed_time, float attack_duration)
+    void StartSpawnPositionAgujeroFast(float min_x, float max_x)
     {
+        warningSignals = new List<GameObject>();
+        float dt = (max_x - min_x)/frequence;
+        for(int i = 0; i < frequence; ++i)
+        {
+            GameObject spawned_warning_signal = Instantiate(warningSignal);
+            spawned_warning_signal.GetComponent<Transform>().position = new Vector3(min_x + dt * i, 2.0f, 0.0f);
+            warningSignals.Add(spawned_warning_signal);
+            for(int j = 0; j < 10; ++j)
+            {
+                SpawnBullet(new Vector3(min_x + dt * i, 24.0f + j * 5, 0.0f));
+            }
+        }
 
     }
 
