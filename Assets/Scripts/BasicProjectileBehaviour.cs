@@ -75,6 +75,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("bullet") == true) return;
         Debug.Log("I'm dead");
         Destroy(gameObject);
     }
@@ -102,12 +103,12 @@ public class BasicProjectileBehaviour : MonoBehaviour
         if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
         {
             new_pos.x += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.y = mAmplitude * Mathf.Sin(new_pos.x - mInitPos.x);
+            new_pos.y = mInitPos.y + mAmplitude * Mathf.Sin(new_pos.x - mInitPos.x);
         }
         else
         {
             new_pos.y += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.x = mAmplitude * Mathf.Sin(new_pos.y - mInitPos.y);
+            new_pos.x = mInitPos.x + mAmplitude * Mathf.Sin(new_pos.y - mInitPos.y);
         }
 
 
@@ -121,12 +122,12 @@ public class BasicProjectileBehaviour : MonoBehaviour
         if (BulletDirection == Direction.Left || BulletDirection == Direction.Right)
         {
             new_pos.x += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.y = mAmplitude * Mathf.Cos(new_pos.x - mInitPos.x);
+            new_pos.y = mInitPos.y + mAmplitude * Mathf.Cos(new_pos.x - mInitPos.x);
         }
         else
         {
             new_pos.y += Time.deltaTime * BulletSpeed * mDir;
-            new_pos.x = mAmplitude * Mathf.Cos(new_pos.y - mInitPos.y);
+            new_pos.x = mInitPos.x + mAmplitude * Mathf.Cos(new_pos.y - mInitPos.y);
         }
 
         transform.SetPositionAndRotation(new_pos, transform.rotation);
