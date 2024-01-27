@@ -1057,7 +1057,7 @@ GameObject:
   - component: {fileID: 1179345405}
   m_Layer: 0
   m_Name: tarima boss
-  m_TagString: Untagged
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1239,6 +1239,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1442443512}
+    - targetCorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1442443528}
   m_SourcePrefab: {fileID: 100100000, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
 --- !u!1001 &1259119331
 PrefabInstance:
@@ -1836,6 +1839,20 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4246912066742065965, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
   m_PrefabInstance: {fileID: 1242708553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442443528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442443494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37153afa30eafa41a59143000dcf501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_blanks: 3
+  current_blanks: 0
 --- !u!1 &1471311476
 GameObject:
   m_ObjectHideFlags: 0
