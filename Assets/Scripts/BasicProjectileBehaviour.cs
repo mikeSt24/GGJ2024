@@ -36,6 +36,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     public bool mCustomVector = false;
     public Vector3 mVecDir = Vector3.zero;
 
+    Animator mAnimator;
 
 
 
@@ -73,6 +74,8 @@ public class BasicProjectileBehaviour : MonoBehaviour
         {
             BulletSpeed *= -1;
         }
+
+        mAnimator = GetComponent<Animator>();  
     }
 
     // Update is called once per frame
@@ -99,7 +102,13 @@ public class BasicProjectileBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("bullet") == true) return;
-        Debug.Log("I'm dead");
+        if(mAnimator != null) 
+        {
+            mAnimator.SetBool("dead", true);
+            this.enabled = false;
+            return;
+        }
+
         Destroy(gameObject);
     }
 
