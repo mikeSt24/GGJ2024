@@ -20,7 +20,7 @@ public class player_parallax : MonoBehaviour
 
         public void MoveObject(Vector3 player_pos)
         {
-            parallax_obj.transform.position = -player_pos * parallax_ratio;
+            parallax_obj.transform.position = new Vector3(-player_pos.x * parallax_ratio, parallax_obj.transform.position.y, 0.0f);
         }
     };
 

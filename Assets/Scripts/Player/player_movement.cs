@@ -317,6 +317,6 @@ public class player_movement : MonoBehaviour
         brain.SetBool("JumpUp", false);    
         brain.SetBool("JumpDown", false);    
         brain.SetBool("Idle", true);
-        LastOnGroundTime = 0.01f;
+        LastOnGroundTime = Time.deltaTime + 0.01f;
     }
 }
