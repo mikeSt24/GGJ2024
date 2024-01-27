@@ -119,7 +119,7 @@ public class Attacking : StateMachineBehaviour
         }
 
 
-        if (elapsed_time >= attack_duration)
+        if (elapsed_time >= attack_duration && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             animator.SetBool(myParameterName, false);
         }

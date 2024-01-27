@@ -8,7 +8,7 @@ public class countdown : MonoBehaviour
 {
     public Animator player_brain;
     public Animator boss_brain;
-    public float time = 5;
+    public float time = 3;
     public TextMeshProUGUI text;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,11 @@ public class countdown : MonoBehaviour
     {
         time -= Time.deltaTime;
         text.SetText((Mathf.Ceil(time)).ToString());
-        if(time <= 0.0f)
+        if(Mathf.Ceil(time) == 0)
+        {
+            text.SetText("GO!");
+        }
+        if(time <= -1.0f)
         {
             player_brain.SetBool("Countdown", false);
             boss_brain.SetBool("Countdown", false);
