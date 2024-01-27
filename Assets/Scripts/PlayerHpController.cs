@@ -18,6 +18,7 @@ public class PlayerHpController : MonoBehaviour
     private bool CanTakeDamage = true;
     private float InvencibleFor = 3.0f;
     private float timer = 0.0f;
+    private bool blincking = true;
     private float blinckTime = 0.1f;
     private bool ghoost = false;
     private float blicktimer = 0.0f;
@@ -44,19 +45,23 @@ public class PlayerHpController : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 return;
             }
-            if(blicktimer >= blinckTime)
+            if(blincking)
             {
-                ghoost = !ghoost;
-                blicktimer = 0.0f;
+                if (blicktimer >= blinckTime)
+                {
+                    ghoost = !ghoost;
+                    blicktimer = 0.0f;
+                }
+                if (ghoost)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                }
+                else
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+                }
             }
-            if(ghoost)
-            {
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-            }
+            
         }
         timer += Time.deltaTime;
         blicktimer += Time.deltaTime;
@@ -74,10 +79,7 @@ public class PlayerHpController : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScreen");
         }
-        CanTakeDamage = false;
-        ghoost = false;
-        timer = 0.0f;
-        blicktimer = 0.0f;
+        MakeInvulnerable();
     }
 
     public void ResetHealth()
@@ -93,5 +95,15 @@ public class PlayerHpController : MonoBehaviour
         {
             Hitreceived();
         }
+    }
+
+    public void MakeInvulnerable(bool blk = true)
+    {
+        CanTakeDamage = false;
+
+        ghoost = false;
+        timer = 0.0f;
+        blicktimer = 0.0f;
+        blincking = blk;
     }
 }
