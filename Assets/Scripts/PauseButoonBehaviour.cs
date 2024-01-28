@@ -35,6 +35,13 @@ public class PauseButoonBehaviour : MonoBehaviour
         Time.timeScale = 0.0f;
         for (int i = 0; i < transform.childCount; i++)
         {
+            //if(transform.GetChild(i).name == "PauseImages")
+            //{
+            //    for (int j = 0; j < transform.GetChild(i).transform.childCount; j++)
+            //    {
+            //        transform.GetChild(i).transform.GetChild(j).gameObject.SetActive(true);
+            //    }
+            //}
             transform.GetChild(i).gameObject.SetActive(true);
         }
 
@@ -44,10 +51,18 @@ public class PauseButoonBehaviour : MonoBehaviour
 
     public void ResumeGame()
     {
-        
+
+        Debug.Log("Goo");
         Time.timeScale = 1.0f;
         for (int i = 0; i < transform.childCount; i++)
         {
+            //if (transform.GetChild(i).name == "PauseImages")
+            //{
+            //    for (int j = 0; j < transform.GetChild(i).transform.childCount; j++)
+            //    {
+            //        transform.GetChild(i).transform.GetChild(j).gameObject.SetActive(false);
+            //    }
+            //}
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
@@ -56,10 +71,23 @@ public class PauseButoonBehaviour : MonoBehaviour
     }
     public void OptionsButton()
     {
+        Debug.Log("1");
+
         GameObject OptionsBut = gameObject;
         for (int i = 0; i < transform.childCount; i++)
         {
-            if(transform.GetChild(i).name == "OPTIONS")
+            //if (transform.GetChild(i).name == "PauseImages")
+            //{
+            //    for (int j = 0; j < transform.GetChild(i).transform.childCount; j++)
+            //    {
+            //        //if (OptionsBut.transform.GetChild(i).gameObject.name != "Text (TMP)")
+            //        //{
+            //        //    OptionsBut.transform.GetChild(i).gameObject.GetComponent<Image>().enabled = false;
+            //        //}
+            //        OptionsBut.transform.GetChild(i).gameObject.SetActive(false);
+            //    }
+            //}
+            if (transform.GetChild(i).name == "OPTIONS")
             {
                 OptionsBut = transform.GetChild(i).gameObject;
             }
@@ -68,31 +96,32 @@ public class PauseButoonBehaviour : MonoBehaviour
                 transform.GetChild(i).gameObject.SetActive(false);
             }
         }
-
-        OptionsBut.transform.GetComponent<Button>().enabled = false;
-        OptionsBut.transform.GetComponent<Image>().enabled = false;
-
+        OptionsBut.GetComponent<Button>().enabled = false;
         for (int i = 0; i < OptionsBut.transform.childCount; i++)
         {
             OptionsBut.transform.GetChild(i).gameObject.SetActive(true);
         }
+
+        Debug.Log("2");
     }
     public void ExitOptionsButton()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
+            //if (transform.GetChild(i).name == "PauseImages")
+            //{
+            //    for (int j = 0; j < transform.GetChild(i).transform.childCount; j++)
+            //    {
+            //        transform.GetChild(i).transform.GetChild(j).gameObject.SetActive(true);
+            //    }
+            //}
             if (transform.GetChild(i).name == "OPTIONS")
             {
                 for (int j = 0; j < transform.GetChild(i).transform.childCount; j++)
                 {
-                    if(transform.GetChild(i).transform.GetChild(j).gameObject.name != "Text (TMP)")
-                    {
-                        transform.GetChild(i).transform.GetChild(j).gameObject.SetActive(false);
-                    }
+                    transform.GetChild(i).transform.GetChild(j).gameObject.SetActive(false);
                 }
-
-                transform.GetChild(i).transform.GetComponent<Button>().enabled = true;
-                transform.GetChild(i).transform.GetComponent<Image>().enabled = true;
+                transform.GetChild(i).GetComponent<Button>().enabled = true;
             }
             else
             {
