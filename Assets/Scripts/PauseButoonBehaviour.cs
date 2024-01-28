@@ -32,6 +32,7 @@ public class PauseButoonBehaviour : MonoBehaviour
         {
             return;
         }
+        Debug.Log("hello");
         active = true;
         Time.timeScale = 0.0f;
         for (int i = 0; i < transform.childCount; i++)
@@ -55,6 +56,7 @@ public class PauseButoonBehaviour : MonoBehaviour
     public void OptionsButton()
     {
 
+        Debug.Log("Options");
         GameObject OptionsBut = gameObject;
         for (int i = 0; i < transform.childCount; i++)
         {
