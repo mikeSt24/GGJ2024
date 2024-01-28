@@ -35,6 +35,7 @@ public class Attacking : StateMachineBehaviour
     public float attack_duration = 0.5f;
     public string myParameterName;
     public float y_offset_position = 0.0f;
+    public Animator nina;
 
     private float elapsed_bullet_time = 0.0f;
 
@@ -65,6 +66,9 @@ public class Attacking : StateMachineBehaviour
             StartSpawnPositionNina(min_scene_x, max_scene_x);
             break;
         }
+
+        nina = GameObject.Find("nina").GetComponent<Animator>();
+        nina.SetTrigger("start_in");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -137,6 +141,9 @@ public class Attacking : StateMachineBehaviour
         {
             Destroy(nina_hitbox);
         }
+
+
+        nina.SetTrigger("end_out");
     }
 
     void UpdateSpawnPositionStatic(Transform trans, float elapsed_time, float attack_duration, int streams, bool low = false)
