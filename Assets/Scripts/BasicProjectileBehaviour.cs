@@ -107,7 +107,6 @@ public class BasicProjectileBehaviour : MonoBehaviour
         if (collision.CompareTag("bullet") == true || collision.CompareTag("player_bullet") || collision.CompareTag("boss")) return;
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player got hit");
             collision.gameObject.GetComponent<PlayerHpController>().Hitreceived();
         }
         if(mAnimator != null) 
