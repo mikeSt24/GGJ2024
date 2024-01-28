@@ -76,10 +76,7 @@ public class PlayerHpController : MonoBehaviour
             return;
         }
         --hearts;
-        if (hearts <= 0)
-        {
-            return;
-        }
+
         Destroy(healthBar.transform.GetChild(healthBar.transform.childCount - 1).gameObject);
         if(hearts == 0)
         {
