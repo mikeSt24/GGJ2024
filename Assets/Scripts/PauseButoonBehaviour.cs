@@ -44,6 +44,7 @@ public class PauseButoonBehaviour : MonoBehaviour
 
     public void ResumeGame()
     {
+        
         Time.timeScale = 1.0f;
         for (int i = 0; i < transform.childCount; i++)
         {

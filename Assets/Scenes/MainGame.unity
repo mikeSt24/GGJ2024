@@ -1372,6 +1372,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175311546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8000508523218992088, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+  m_PrefabInstance: {fileID: 1295564627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395ca04798211ca4a9978fe95277a150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1179345404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,10 +1975,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2504495261699942261, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1175311546}
+    - target: {fileID: 2504495261699942261, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620049072523223998, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1175311546}
+    - target: {fileID: 4620049072523223998, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitOptionsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4690782709725359566, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
       propertyPath: player_anim
       value: 
       objectReference: {fileID: 1442443519}
+    - target: {fileID: 4952634410898913627, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1175311546}
+    - target: {fileID: 4952634410898913627, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 5621096262388799141, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2056,6 +2091,14 @@ PrefabInstance:
       propertyPath: player_anim
       value: 
       objectReference: {fileID: 1442443519}
+    - target: {fileID: 9188507847705504552, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1175311546}
+    - target: {fileID: 9188507847705504552, guid: bac2b5496d0d9854ba598c5e135c8ae3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OptionsButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
