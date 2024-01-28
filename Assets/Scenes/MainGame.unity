@@ -926,8 +926,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0535b14c100872535b718c90dcb0d5ec, type: 2}
-  m_sharedMaterial: {fileID: -4901615984473213444, guid: 0535b14c100872535b718c90dcb0d5ec, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 540.45
+  m_fontSize: 608.7
   m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1489,11 +1489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.05
+      value: -12.42
       objectReference: {fileID: 0}
     - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.7
+      value: -7.24
       objectReference: {fileID: 0}
     - target: {fileID: 1557461123908595028, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1535,6 +1535,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2228545966178735339, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2815135780043986646, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_GravityScale
       value: 2
@@ -1548,16 +1552,24 @@ PrefabInstance:
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: shoot_air
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e00532d36f3a7932a4740945e6c9fb2, type: 3}
+    - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: bullet_speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5365847072825098579, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
+      propertyPath: shoot_ground
+      value: 
+      objectReference: {fileID: 21300000, guid: b39b1b1594518d9b4b3c713dd59fc363, type: 3}
     - target: {fileID: 6047062679851835863, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_Size.y
-      value: 2.162197
+      value: 1.4867489
       objectReference: {fileID: 0}
     - target: {fileID: 6047062679851835863, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: m_Offset.y
-      value: -0.31575054
+      value: 0.8499458
       objectReference: {fileID: 0}
     - target: {fileID: 6063780586565858925, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       propertyPath: healthBar
@@ -2308,6 +2320,7 @@ MonoBehaviour:
   hearts: 3
   healthBar: {fileID: 2134045545}
   Heart_Step: 150
+  brain: {fileID: 0}
 --- !u!114 &1442443512
 MonoBehaviour:
   m_ObjectHideFlags: 0
