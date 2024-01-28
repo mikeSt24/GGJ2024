@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8484d17f172f2489bf17acc6f8cd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  function: 8
+  function: 4
   attack_duration: 2
   myParameterName: attacking
   y_offset_position: -3
