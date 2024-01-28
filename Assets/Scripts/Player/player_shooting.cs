@@ -15,6 +15,9 @@ public class player_shooting : MonoBehaviour
     Rigidbody2D rb;
     UnityEngine.Vector2 dir;
     Animator brain;
+
+    public Sprite shoot_ground;
+    public Sprite shoot_air;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,19 @@ public class player_shooting : MonoBehaviour
         if(brain.GetBool("Idle") && Input.GetKey(KeyCode.X))
         {
             brain.SetBool("Shooting", true);
+        }
+        else
+        {
+            brain.SetBool("Shooting", false);
+        }
+
+        if((brain.GetBool("JumpUp") || brain.GetBool("JumpDown")) && Input.GetKey(KeyCode.X))
+        {
+            GetComponent<SpriteRenderer>().sprite = shoot_air;
+        }
+        else if(Input.GetKey(KeyCode.X))
+        {
+            GetComponent<SpriteRenderer>().sprite = shoot_ground;
         }
 
         t -= Time.deltaTime;
