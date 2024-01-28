@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4514196629923132256}
   - component: {fileID: 6047062679851835863}
   - component: {fileID: 5365847072825098579}
-  - component: {fileID: 6063780586565858925}
   - component: {fileID: 7676059695630045975}
+  - component: {fileID: 6063780586565858925}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e905db85252b80b789dd43bc1fd5022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spr_renderer: {fileID: 0}
   gravityStrength: 0
   gravityScale: 0
   fallGravityMult: 2
@@ -217,22 +218,8 @@ MonoBehaviour:
   bullet: {fileID: 5659171006436868387, guid: d796faf512d7be909855a3918496763a, type: 3}
   bullet_speed: 20
   bullets_per_second: 5
---- !u!114 &6063780586565858925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6999057504970635150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e51e161328f7140a245db816f345f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heart_prefab: {fileID: 8936775043951407952, guid: d1dfefcdcc3289c4bb7e32a2084fb33e, type: 3}
-  hearts: 3
-  healthBar: {fileID: 0}
-  Heart_Step: 150
+  shoot_ground: {fileID: 0}
+  shoot_air: {fileID: 0}
 --- !u!50 &7676059695630045975
 Rigidbody2D:
   serializedVersion: 4
@@ -260,3 +247,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6063780586565858925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999057504970635150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e51e161328f7140a245db816f345f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heart_prefab: {fileID: 8936775043951407952, guid: d1dfefcdcc3289c4bb7e32a2084fb33e, type: 3}
+  hearts: 5
+  healthBar: {fileID: 0}
+  Heart_Step: 110
+  brain: {fileID: 0}

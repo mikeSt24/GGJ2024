@@ -2018,9 +2018,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1442443503}
-    - targetCorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1442443512}
     - targetCorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
       insertIndex: -1
@@ -2798,23 +2795,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6999057504970635150, guid: 0687ca78caa7c68039f26ab20edce592, type: 3}
   m_PrefabInstance: {fileID: 1242708553}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1442443503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442443494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e51e161328f7140a245db816f345f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heart_prefab: {fileID: 8936775043951407952, guid: d1dfefcdcc3289c4bb7e32a2084fb33e, type: 3}
-  hearts: 3
-  healthBar: {fileID: 2134045545}
-  Heart_Step: 150
-  brain: {fileID: 0}
 --- !u!114 &1442443512
 MonoBehaviour:
   m_ObjectHideFlags: 0
