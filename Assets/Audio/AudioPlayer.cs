@@ -14,7 +14,7 @@ public class AudioPlayer : StateMachineBehaviour
         AudSourc = GameObject.Find("GlobalEmitter").GetComponent<AudioSource>();
         AudSourc.clip = Clip;
         int random = UnityEngine.Random.Range(0, 100);
-        if(random >= 60)
+        if(random >= 10)
         {
             AudSourc.Play();
         }
