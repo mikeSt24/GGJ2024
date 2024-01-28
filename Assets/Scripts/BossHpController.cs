@@ -27,7 +27,10 @@ public class BossHpController: MonoBehaviour
         //healthBar = healthBar_Prefab.transform.GetChild(2).GetComponent<Image>();
         mInitPos = face.transform.position;
         width = healthBar.GetComponent<RectTransform>().rect.width;
-        face.gameObject.transform.position = new Vector3(mInitPos.x, face.gameObject.transform.position.y, face.gameObject.transform.position.z);
+
+        RectTransform rect = healthBar.GetComponent<RectTransform>();
+        float x = rect.localPosition.x + rect.rect.width * healthBar.fillAmount - width/2.0f;
+        face.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(x, rect.localPosition.y, face.gameObject.transform.position.z);
     }
     private void Update()
     {
@@ -49,13 +52,16 @@ public class BossHpController: MonoBehaviour
 
         HealthAmount += dmg * 2.0f;
         healthBar.fillAmount = HealthAmount / 100.0f;
+        RectTransform rect = healthBar.GetComponent<RectTransform>();
+
 
         //Debug.Log(healthBar.GetComponent<RectTransform>().rect.width * healthBar.fillAmount);
-        //
+        
+        float x = rect.localPosition.x + rect.rect.width * healthBar.fillAmount - width/2.0f;
         //float x = Mathf.Lerp(mInitPos.x, mInitPos.x + width, healthBar.fillAmount);
         //Debug.Log(x);
-        //
-        //face.gameObject.transform.position = new Vector3(x, face.gameObject.transform.position.y, face.gameObject.transform.position.z);
+        
+        face.gameObject.GetComponent<RectTransform>().localPosition = new Vector3(x, rect.localPosition.y, rect.localPosition.z);
 
         if (HealthAmount >= 100.0f)
         {
