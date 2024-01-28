@@ -12,8 +12,8 @@ public class PlayerHpController : MonoBehaviour
     public int hearts = 3;
 
     public GameObject healthBar;
-    private float height = 480;
-    private float start = -800;
+    private float height = 450;
+    private float start = -850;
     public float Heart_Step = 150.0f;
     private bool CanTakeDamage = true;
     private float InvencibleFor = 3.0f;
@@ -76,10 +76,7 @@ public class PlayerHpController : MonoBehaviour
             return;
         }
         --hearts;
-        if (hearts <= 0)
-        {
-            return;
-        }
+
         Destroy(healthBar.transform.GetChild(healthBar.transform.childCount - 1).gameObject);
         if(hearts == 0)
         {
