@@ -19,13 +19,15 @@ public class BossHpController: MonoBehaviour
     private float currentTime = 0;
     private bool hit = false;
     private Vector3 mInitPos = Vector3.zero;
+    private float width = 0.0f;
 
     private void Start()
     {
         //healthBar_Prefab = Instantiate(healthBar_Prefab);
         //healthBar = healthBar_Prefab.transform.GetChild(2).GetComponent<Image>();
         mInitPos = face.transform.position;
-
+        width = healthBar.GetComponent<RectTransform>().rect.width;
+        face.gameObject.transform.position = new Vector3(mInitPos.x, face.gameObject.transform.position.y, face.gameObject.transform.position.z);
     }
     private void Update()
     {
@@ -48,9 +50,12 @@ public class BossHpController: MonoBehaviour
         HealthAmount += dmg * 2.0f;
         healthBar.fillAmount = HealthAmount / 100.0f;
 
-        Debug.Log(healthBar.GetComponent<RectTransform>().rect.width * healthBar.fillAmount);
-
-        face.gameObject.transform.position = new Vector3(mInitPos.x + healthBar.GetComponent<RectTransform>().rect.width * healthBar.fillAmount, face.gameObject.transform.position.y, face.gameObject.transform.position.z);
+        //Debug.Log(healthBar.GetComponent<RectTransform>().rect.width * healthBar.fillAmount);
+        //
+        //float x = Mathf.Lerp(mInitPos.x, mInitPos.x + width, healthBar.fillAmount);
+        //Debug.Log(x);
+        //
+        //face.gameObject.transform.position = new Vector3(x, face.gameObject.transform.position.y, face.gameObject.transform.position.z);
 
         if (HealthAmount >= 100.0f)
         {
