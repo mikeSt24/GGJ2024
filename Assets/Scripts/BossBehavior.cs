@@ -5,6 +5,10 @@ using UnityEngine;
 public class BossBehavior : MonoBehaviour
 {
     public Vector2 bulletBounds;
+
+    private Animator animator;
+
+    public float offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +26,14 @@ public class BossBehavior : MonoBehaviour
         {
             gameObject.GetComponent<BossHpController>().Hitreceived(0.1f); // Damage Temp
         }
+    }
+
+    public void DecrementByOffset()
+    {
+        transform.position = transform.position - new Vector3(0f, offset, 0f);
+    }
+    public void IncrementByOffset()
+    {
+        transform.position = transform.position + new Vector3(0f, offset, 0f);
     }
 }
