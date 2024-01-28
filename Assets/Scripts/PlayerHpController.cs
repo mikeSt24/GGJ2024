@@ -23,10 +23,13 @@ public class PlayerHpController : MonoBehaviour
     private bool ghoost = false;
     private float blicktimer = 0.0f;
 
+    public Animator brain;
+
     // Start is called before the first frame update
     void Start()
     {
         //healthBar = Instantiate(healthBar_prefab);
+        brain = GetComponent<Animator>();
 
         int count = healthBar.transform.childCount;
         for(int i = 0; i < hearts - count; i++)
@@ -77,7 +80,7 @@ public class PlayerHpController : MonoBehaviour
         Destroy(healthBar.transform.GetChild(healthBar.transform.childCount - 1).gameObject);
         if(hearts == 0)
         {
-            SceneManager.LoadScene("LoseScreen");
+            brain.SetTrigger("Die");
         }
         MakeInvulnerable();
     }
