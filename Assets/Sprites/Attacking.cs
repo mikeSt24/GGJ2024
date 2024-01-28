@@ -52,6 +52,7 @@ public class Attacking : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        nina = GameObject.Find("nina").GetComponent<Animator>();
         elapsed_time = 0.0f;
         bounds = new Vector3(animator.GetComponent<Transform>().localScale.x, animator.GetComponent<BossBehavior>().bulletBounds.x, 0.0f);
         switch(function)
@@ -61,14 +62,14 @@ public class Attacking : StateMachineBehaviour
             break;
         case bullet_spawn_function.NINA:
             StartSpawnPositionNina(min_scene_x, max_scene_x);
+            nina.SetTrigger("start_in");
             break;
         case bullet_spawn_function.NINA_HIGH:
             StartSpawnPositionNina(min_scene_x, max_scene_x);
+            nina.SetTrigger("start_in");
             break;
         }
 
-        nina = GameObject.Find("nina").GetComponent<Animator>();
-        nina.SetTrigger("start_in");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -140,10 +141,10 @@ public class Attacking : StateMachineBehaviour
         if(function == bullet_spawn_function.NINA || function == bullet_spawn_function.NINA_HIGH)
         {
             Destroy(nina_hitbox);
+            nina.SetTrigger("end_out");
         }
 
 
-        nina.SetTrigger("end_out");
     }
 
     void UpdateSpawnPositionStatic(Transform trans, float elapsed_time, float attack_duration, int streams, bool low = false)
