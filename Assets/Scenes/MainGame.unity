@@ -3500,6 +3500,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2224864810514918358, guid: ae20e2cf40195cd8688564a738703e69, type: 3}
+      propertyPath: offset
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224864810514918358, guid: ae20e2cf40195cd8688564a738703e69, type: 3}
       propertyPath: bulletBounds.y
       value: 8
       objectReference: {fileID: 0}
