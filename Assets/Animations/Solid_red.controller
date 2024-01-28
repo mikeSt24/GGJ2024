@@ -359,7 +359,7 @@ MonoBehaviour:
   function: 4
   attack_duration: 2
   myParameterName: attacking
-  y_offset_position: -3
+  y_offset_position: -4.5
   nina: {fileID: 0}
   frequence: 3
   Omega: 1

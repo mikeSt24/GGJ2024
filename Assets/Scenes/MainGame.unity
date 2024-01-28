@@ -6413,7 +6413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224864810514918358, guid: ae20e2cf40195cd8688564a738703e69, type: 3}
       propertyPath: bulletBounds.y
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2632275568325736615, guid: ae20e2cf40195cd8688564a738703e69, type: 3}
       propertyPath: m_Name
