@@ -38,7 +38,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
     public float mAmplitude = 2.0f;
 
-    public float mOmega = 1.0f;
+    public float mOmega = 0.01f;
 
 
     void Start()
@@ -100,14 +100,6 @@ public class BasicProjectileBehaviour : MonoBehaviour
         t += Time.deltaTime * BulletSpeed;
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision) {
-    //    if (collision.otherCollider.CompareTag("bullet") == true || collision.otherCollider.CompareTag("player_bullet")) return;
-    //    if(collision.otherCollider.CompareTag("Player"))
-    //    {
-    //        Debug.Log("Player got hit");
-    //    }
-    //    Destroy(gameObject);
-    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -193,6 +185,9 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
         Vector3 dir_norm = new_pos - mPrevPos;dir_norm = dir_norm.normalized;
         rot = Quaternion.Euler(0.0F, 0.0F, (Mathf.Atan2(dir_norm.y, dir_norm.x) + Mathf.PI / 2.0f) * 180.0f / Mathf.PI);
+        //rot = Quaternion.LookRotation(Vector3.RotateTowards(transform.position, new_pos, Time.deltaTime, 0.0f));
+
+
 
 
         transform.SetPositionAndRotation(new_pos, rot);
@@ -223,6 +218,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
         Vector3 dir_norm = new_pos - mPrevPos; dir_norm = dir_norm.normalized;
         rot = Quaternion.Euler(0.0F, 0.0F, (Mathf.Atan2(dir_norm.y, dir_norm.x) + Mathf.PI / 2.0f) * 180.0f / Mathf.PI);
+        //rot = Quaternion.LookRotation(Vector3.RotateTowards(transform.position, new_pos, Time.deltaTime, 0.0f));
         transform.SetPositionAndRotation(new_pos, rot);
     }
 
