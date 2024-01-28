@@ -30,6 +30,11 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("LoseScreen");
     }
 
+    public void ToCredits()
+    {
+        SceneManager.LoadScene("CreditsScreen");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

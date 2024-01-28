@@ -6,6 +6,7 @@ public class playerBlanksBehavior : MonoBehaviour
 {
     public int max_blanks;
     public int current_blanks;
+    public Animator explosion_animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class playerBlanksBehavior : MonoBehaviour
         {
             if(current_blanks > 0)
             {
+                explosion_animator.SetBool("exploding", true);
                 DestroyAllBullets();
                 current_blanks--;
             }

@@ -229,8 +229,8 @@ public class Attacking : StateMachineBehaviour
         for(int i = 0; i < frequence; ++i)
         {
             Vector2 aim = new Vector2(min_x + dt * i, -9.0f);
-            float y0 = -6.0f;
-            float x0 = max_x + 3.0f;
+            float y0 = -5.0f;
+            float x0 = 0.0f;
             float alpha = Mathf.Atan((aim.y - y0 + (1.0f/2.0f)*9.8f * attack_duration* attack_duration) * (1.0f/(aim.x - x0)));
             float v = (aim.x - x0/(Mathf.Cos(alpha)*attack_duration));
             Vector2 final_vel = new Vector2();

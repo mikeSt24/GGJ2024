@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 312858673}
   - component: {fileID: 312858672}
   m_Layer: 0
-  m_Name: Start
+  m_Name: start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,7 +380,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -389,7 +389,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.1
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -398,7 +398,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.2
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -407,7 +407,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.4
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -416,7 +416,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.8
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -425,7 +425,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1.6
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -434,7 +434,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 3.2
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -443,7 +443,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 6.4
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -452,7 +452,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 12.8
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -461,7 +461,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 25.6
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -470,7 +470,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 51.2
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -479,7 +479,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 102.4
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -488,7 +488,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 204.8
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -497,7 +497,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 409.6
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -506,7 +506,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 500
-      value: 4.2204e-41
+      value: 1e-45
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -596,8 +596,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00073242, y: 0.0097351}
-  m_SizeDelta: {x: 1920, y: 1080.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312858669
 MonoBehaviour:

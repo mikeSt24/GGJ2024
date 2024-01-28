@@ -2,24 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlayer : StateMachineBehaviour
+public class explosion_state_behavior : StateMachineBehaviour
 {
-
-    public AudioSource AudSourc;
-    public AudioClip Clip;
-
-    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        AudSourc = GameObject.Find("GlobalEmitter").GetComponent<AudioSource>();
-        AudSourc.clip = Clip;
-        int random = UnityEngine.Random.Range(0, 100);
-        if(random >= 10)
-        {
-            AudSourc.Play();
-        }
-        
-
+        animator.SetBool("exploding", false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
