@@ -9,20 +9,24 @@ public class BossHpController: MonoBehaviour
 {
     //public GameObject healthBar_Prefab;
     public Image healthBar;
+    public Image face;
 
-    public float BaseHealth = 100.0f;
+    public float BaseHealth = 0.0f;
     public float DamageoOfHit = 20.00f;
-    public float HealthAmount = 100.0f;
+    public float HealthAmount = 0.0f;
     // Start is called before the first frame update
     private float TimeRed = 0.1f;
     private float currentTime = 0;
     private bool hit = false;
+    private Vector3 mInitPos = Vector3.zero;
 
-    //private void Start()
-    //{
-    //    healthBar_Prefab = Instantiate(healthBar_Prefab);
-    //    healthBar = healthBar_Prefab.transform.GetChild(2).GetComponent<Image>();
-    //}
+    private void Start()
+    {
+        //healthBar_Prefab = Instantiate(healthBar_Prefab);
+        //healthBar = healthBar_Prefab.transform.GetChild(2).GetComponent<Image>();
+        mInitPos = face.transform.position;
+
+    }
     private void Update()
     {
         if(hit)
@@ -41,9 +45,14 @@ public class BossHpController: MonoBehaviour
         hit = true;
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
-        HealthAmount -= dmg * 2.0f;
+        HealthAmount += dmg * 2.0f;
         healthBar.fillAmount = HealthAmount / 100.0f;
-        if(HealthAmount <= 0.0f)
+
+        Debug.Log(healthBar.GetComponent<RectTransform>().rect.width * healthBar.fillAmount);
+
+        face.gameObject.transform.position = new Vector3(mInitPos.x + healthBar.GetComponent<RectTransform>().rect.width * healthBar.fillAmount, face.gameObject.transform.position.y, face.gameObject.transform.position.z);
+
+        if (HealthAmount >= 100.0f)
         {
             SceneManager.LoadScene("WinScreen");
         }
