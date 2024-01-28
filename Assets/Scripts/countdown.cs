@@ -21,6 +21,10 @@ public class countdown : MonoBehaviour
     {
         time -= Time.deltaTime;
         text.SetText((Mathf.Ceil(time)).ToString());
+        if(Mathf.Ceil(time) == 1)
+        {
+            text.SetText("l");
+        }
         if(Mathf.Ceil(time) == 0)
         {
             text.SetText("GO!");
