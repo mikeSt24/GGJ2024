@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9218572743415004885
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4104b2b2cee4e418b870ceb38d8ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudSourc: {fileID: 0}
+  Clip: {fileID: 8300000, guid: 3a8c56c4ec7b16d45be93ee03c680d9c, type: 3}
 --- !u!114 &-8926425534914307701
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -37,6 +51,7 @@ AnimatorState:
   - {fileID: -4323352496866135493}
   m_StateMachineBehaviours:
   - {fileID: 5431003826084546882}
+  - {fileID: -8621385736688280257}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -51,6 +66,20 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-8621385736688280257
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4104b2b2cee4e418b870ceb38d8ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudSourc: {fileID: 0}
+  Clip: {fileID: 8300000, guid: 39117645bb6a7a84bafb77cce98fee27, type: 3}
 --- !u!1102 &-8348572375385399612
 AnimatorState:
   serializedVersion: 6
@@ -442,6 +471,7 @@ AnimatorState:
   - {fileID: -5960587322973059978}
   m_StateMachineBehaviours:
   - {fileID: 3799193416553396721}
+  - {fileID: -9218572743415004885}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -523,55 +553,55 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_sin
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_agujero
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_agujero_fast
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_nina
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attack_nina_high
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Countdown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: sintd_attack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: low_attack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -599,6 +629,7 @@ AnimatorState:
   - {fileID: 1817048035177615134}
   m_StateMachineBehaviours:
   - {fileID: -3954084993565938222}
+  - {fileID: 5915735261579747642}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -919,6 +950,20 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8348572375385399612}
+--- !u!114 &5915735261579747642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4104b2b2cee4e418b870ceb38d8ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudSourc: {fileID: 0}
+  Clip: {fileID: 8300000, guid: 39117645bb6a7a84bafb77cce98fee27, type: 3}
 --- !u!1102 &7394346230561362298
 AnimatorState:
   serializedVersion: 6
