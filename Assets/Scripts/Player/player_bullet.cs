@@ -7,10 +7,12 @@ public class player_bullet : MonoBehaviour
     public Vector2 direction;
     public float speed;
     Transform tr;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         tr = GetComponent<Transform>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,8 @@ public class player_bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Destroy(gameObject);
+        animator.SetBool("dead", true);
+        GetComponent<Collider2D>().enabled = false;
+        enabled = false;
     }
 }
